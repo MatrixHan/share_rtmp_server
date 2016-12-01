@@ -1,0 +1,4 @@
+[Project]
+Name=share_rtmp_server
+Manager=KDevCMakeManager
+VersionControl=
