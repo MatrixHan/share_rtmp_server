@@ -15,3 +15,6 @@ Install Directory=
 Name=GCC
 Path=gcc
 Type=GCC
+
+[SourceFileTemplates]
+LastUsedTemplate=/home/brave/.kde/share/apps/kdevfiletemplates/template_descriptions/cmake_module.desktop
