@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/share_rtmp_server.dir/main.cpp.o  -o share_rtmp_server -rdynamic 

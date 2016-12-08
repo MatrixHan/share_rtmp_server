@@ -1,4 +1,14 @@
 #pragma once
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <fcntl.h>
+
+#include <signal.h>
+
 #include <math.h>
 #include <algorithm>
 #include <assert.h>
@@ -14,7 +24,7 @@ namespace BRS
   typedef char 		BChar;
   typedef short 	BShort;
   typedef float 	BFloat;
-  typedef int 		EInt;
+  typedef int 		BInt;
   typedef bool  	BBool;
   typedef long 		BLong;
   typedef double	BDouble;
@@ -42,6 +52,14 @@ namespace BRS
 #define COLOR255(rgb) ((rgb)>255?255:(rgb))
   
 #define EPSILON_E6 (BFloat)(1E-6)
+  
+#define ERR_EXIT(m) \
+	do \
+	{ \
+		perror(m); \
+		exit(EXIT_FAILURE); \
+	} while(0)
+
   
   
 }
