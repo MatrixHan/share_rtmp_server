@@ -20,7 +20,7 @@ int BRSServer::initServer()
      return -1;
    if(server_socket.listenSocket(SOMAXCONN)<0)
      return -1;
-   server_epoll = new server_epoll(server_socket);
+   server_epoll = new BRSEpoll(server_socket);
    server_epoll->initEpoll(16);
    return 0;
 }
@@ -41,7 +41,7 @@ void BRSServer::start()
 	    server_epoll->resize_client();
 	for(int i = 0; i < nready; i++)
 	{
-	  if(server_epoll->isAccept())
+	  if(server_epoll->isAccept(i))
 	  {
 	    
 	  }

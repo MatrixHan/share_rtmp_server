@@ -60,7 +60,7 @@ int BRSSocket::acceptSocket(sockaddr* saddr, socklen_t* len)
 int BRSSocket::accept4Socket(sockaddr* saddr, socklen_t* len, int flags)
 {
 
-      int connfd = accept(sfd, saddr, len,flags);
+      int connfd = accept4(sfd, saddr, len,flags);
       return connfd;
 }
   
