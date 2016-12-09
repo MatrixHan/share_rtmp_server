@@ -13,6 +13,8 @@
 /home/brave/projects/share_rtmp_server/brs/share_rtmp_server.cpp
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
+../core/BRSLog.h
+/home/brave/projects/share_rtmp_server/core/BRSLog.h
 
 /home/brave/projects/share_rtmp_server/common/BRSCommon.cpp
 BRSCommon.h
@@ -25,11 +27,17 @@ stdio.h
 -
 stdlib.h
 -
+stdint.h
+-
 string.h
 -
 errno.h
 -
 fcntl.h
+-
+time.h
+-
+sys/types.h
 -
 signal.h
 -
@@ -49,6 +57,12 @@ queue
 -
 iostream
 -
+sstream
+-
+fstream
+-
+stdarg.h
+-
 BRSHeader.h
 /home/brave/projects/share_rtmp_server/common/BRSHeader.h
 
@@ -65,6 +79,24 @@ BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
 
 /home/brave/projects/share_rtmp_server/core/BRSJson.cpp
+
+/home/brave/projects/share_rtmp_server/core/BRSLog.cpp
+BRSLog.h
+/home/brave/projects/share_rtmp_server/core/BRSLog.h
+
+/home/brave/projects/share_rtmp_server/core/BRSLog.h
+../common/BRSCommon.h
+/home/brave/projects/share_rtmp_server/common/BRSCommon.h
+BRSUtils.h
+/home/brave/projects/share_rtmp_server/core/BRSUtils.h
+
+/home/brave/projects/share_rtmp_server/core/BRSUtils.cpp
+BRSUtils.h
+/home/brave/projects/share_rtmp_server/core/BRSUtils.h
+
+/home/brave/projects/share_rtmp_server/core/BRSUtils.h
+../common/BRSCommon.h
+/home/brave/projects/share_rtmp_server/common/BRSCommon.h
 
 /home/brave/projects/share_rtmp_server/network/BRSEpoll.cpp
 BRSEpoll.h

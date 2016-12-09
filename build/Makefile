@@ -312,6 +312,60 @@ core/BRSJson.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSJson.cpp.s
 .PHONY : core/BRSJson.cpp.s
 
+core/BRSLog.o: core/BRSLog.cpp.o
+
+.PHONY : core/BRSLog.o
+
+# target to build an object file
+core/BRSLog.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o
+.PHONY : core/BRSLog.cpp.o
+
+core/BRSLog.i: core/BRSLog.cpp.i
+
+.PHONY : core/BRSLog.i
+
+# target to preprocess a source file
+core/BRSLog.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.i
+.PHONY : core/BRSLog.cpp.i
+
+core/BRSLog.s: core/BRSLog.cpp.s
+
+.PHONY : core/BRSLog.s
+
+# target to generate assembly for a file
+core/BRSLog.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.s
+.PHONY : core/BRSLog.cpp.s
+
+core/BRSUtils.o: core/BRSUtils.cpp.o
+
+.PHONY : core/BRSUtils.o
+
+# target to build an object file
+core/BRSUtils.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o
+.PHONY : core/BRSUtils.cpp.o
+
+core/BRSUtils.i: core/BRSUtils.cpp.i
+
+.PHONY : core/BRSUtils.i
+
+# target to preprocess a source file
+core/BRSUtils.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.i
+.PHONY : core/BRSUtils.cpp.i
+
+core/BRSUtils.s: core/BRSUtils.cpp.s
+
+.PHONY : core/BRSUtils.s
+
+# target to generate assembly for a file
+core/BRSUtils.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.s
+.PHONY : core/BRSUtils.cpp.s
+
 network/BRSEpoll.o: network/BRSEpoll.cpp.o
 
 .PHONY : network/BRSEpoll.o
@@ -450,6 +504,12 @@ help:
 	@echo "... core/BRSJson.o"
 	@echo "... core/BRSJson.i"
 	@echo "... core/BRSJson.s"
+	@echo "... core/BRSLog.o"
+	@echo "... core/BRSLog.i"
+	@echo "... core/BRSLog.s"
+	@echo "... core/BRSUtils.o"
+	@echo "... core/BRSUtils.i"
+	@echo "... core/BRSUtils.s"
 	@echo "... network/BRSEpoll.o"
 	@echo "... network/BRSEpoll.i"
 	@echo "... network/BRSEpoll.s"

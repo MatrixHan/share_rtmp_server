@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/brave/projects/share_rtmp_server/common/BRSHeader.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/common/BRSHeader.cpp.o"
   "/home/brave/projects/share_rtmp_server/common/BRSMath.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o"
   "/home/brave/projects/share_rtmp_server/core/BRSJson.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/core/BRSJson.cpp.o"
+  "/home/brave/projects/share_rtmp_server/core/BRSLog.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o"
+  "/home/brave/projects/share_rtmp_server/core/BRSUtils.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o"
   "/home/brave/projects/share_rtmp_server/network/BRSEpoll.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o"
   "/home/brave/projects/share_rtmp_server/network/BRSServer.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o"
   "/home/brave/projects/share_rtmp_server/network/BRSSocket.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o"

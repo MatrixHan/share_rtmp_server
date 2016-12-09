@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/share_rtmp_server.dir/common/BRSHeader.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/common/BRSCommon.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o"
+  "CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o"
+  "CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/core/BRSJson.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o"
