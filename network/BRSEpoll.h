@@ -24,6 +24,12 @@ namespace BRS
     
     int waitEpoll();
     
+    int addEpoll(int cfd);
+    
+    int delEpoll(int cfd);
+    
+    int getCfd(int index);
+    
     bool isAccept(int i);
     
     bool epoll_in(int i);

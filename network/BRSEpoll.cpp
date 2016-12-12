@@ -45,5 +45,26 @@ int BRSEpoll::waitEpoll()
    return epoll_wait(epoll_fd,&*clients.begin(), static_cast<int>(clients.size()), -1);
 }
 
+int BRSEpoll::addEpoll(int cfd)
+{
+	    sEvent.data.fd = cfd;
+	    sEvent.events = EPOLLIN;
+	    epoll_ctl(epoll_fd, EPOLL_CTL_ADD, cfd, &sEvent);
+}
+
+
+int BRSEpoll::delEpoll(int cfd)
+{
+	    sEvent.data.fd = cfd;
+	    sEvent.events = EPOLLIN;
+	    epoll_ctl(epoll_fd, EPOLL_CTL_DEL, cfd, &sEvent);
+}
+
+int BRSEpoll::getCfd(int index)
+{
+  return clients[index].data.fd;
+}
+
+
   
 }

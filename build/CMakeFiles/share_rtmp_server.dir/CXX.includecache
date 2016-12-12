@@ -51,6 +51,8 @@ string
 -
 vector
 -
+map
+-
 list
 -
 queue
@@ -98,6 +100,12 @@ BRSUtils.h
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
 
+/home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
+../common/BRSCommon.h
+/home/brave/projects/share_rtmp_server/common/BRSCommon.h
+../objs/coroutine/include/coroutine.h
+/home/brave/projects/share_rtmp_server/objs/coroutine/include/coroutine.h
+
 /home/brave/projects/share_rtmp_server/network/BRSEpoll.cpp
 BRSEpoll.h
 /home/brave/projects/share_rtmp_server/network/BRSEpoll.h
@@ -121,6 +129,8 @@ BRSSocket.h
 /home/brave/projects/share_rtmp_server/network/BRSSocket.h
 BRSStream.h
 /home/brave/projects/share_rtmp_server/network/BRSStream.h
+BRSCoroutine.h
+/home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
 
 /home/brave/projects/share_rtmp_server/network/BRSSocket.cpp
 BRSSocket.h
@@ -149,4 +159,6 @@ sys/socket.h
 /home/brave/projects/share_rtmp_server/network/BRSStream.h
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
+
+/home/brave/projects/share_rtmp_server/objs/coroutine/include/coroutine.h
 

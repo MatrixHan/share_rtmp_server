@@ -18,6 +18,7 @@
 #include <assert.h>
 #include <string>
 #include <vector>
+#include <map>
 #include <list>
 #include <queue>
 #include <iostream>

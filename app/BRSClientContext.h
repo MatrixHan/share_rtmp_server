@@ -7,7 +7,6 @@ namespace BRS
   {
     int client_socketfd;
     int coroutine_fd;
-    
   }__attribute__((packed));
   
 }

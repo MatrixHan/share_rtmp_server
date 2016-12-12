@@ -25,7 +25,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../objs"
   "../objs/hp"
   "../objs/openssl/include"
-  "../objs/libco/include"
+  "../objs/coroutine/include"
   "../common"
   "../core"
   "../network"

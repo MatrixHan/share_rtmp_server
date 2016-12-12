@@ -4,16 +4,19 @@
 #include "BRSEpoll.h"
 #include "BRSSocket.h"
 #include "BRSStream.h"
+#include "../app/BRSClientContext.h"
+#include "../app/BRSClientWorker.h"
+#include "BRSCoroutine.h"
 namespace BRS 
 {
-  class BRSServer:public BRSInputStream,BRSOutputStream
+  class BRSServer:public BRSCoroutine
   {
-    typedef std::vector<struct BRSClientContext> brsClientContexts;
+    
   private:
     struct BRSSocket server_socket;
     BRSEpoll		*server_epoll;
+    BRSClientContextMaps   brsClientContextMaps;
   public:
-    BRSServer();
     int initServer();
     
     void start();

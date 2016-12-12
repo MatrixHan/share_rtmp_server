@@ -43,11 +43,13 @@ CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../network/BRSSocket.h
 
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../common/BRSCommon.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../common/BRSHeader.h
+CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../network/BRSCoroutine.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../network/BRSEpoll.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../network/BRSServer.cpp
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../network/BRSServer.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../network/BRSSocket.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../network/BRSStream.h
+CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../objs/coroutine/include/coroutine.h
 
 CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../common/BRSCommon.h
 CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../common/BRSHeader.h

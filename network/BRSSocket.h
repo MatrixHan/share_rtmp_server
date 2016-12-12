@@ -22,8 +22,7 @@ namespace BRS {
   {
     int sfd;//server clr fd
     int idlefd;//open system file fd
-    struct sockaddr_in servaddr;
-    
+    struct sockaddr_in servaddr, peeraddr;
     
     
     BRSSocket();

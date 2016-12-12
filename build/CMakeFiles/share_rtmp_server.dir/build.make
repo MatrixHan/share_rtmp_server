@@ -402,7 +402,7 @@ share_rtmp_server: CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/build.make
-share_rtmp_server: ../objs/libco/lib/libcolib.a
+share_rtmp_server: ../objs/coroutine/lib/coroutinelib.a
 share_rtmp_server: ../objs/openssl/lib/libssl.a
 share_rtmp_server: ../objs/openssl/lib/libcrypto.a
 share_rtmp_server: ../objs/hp/libhttp_parser.a

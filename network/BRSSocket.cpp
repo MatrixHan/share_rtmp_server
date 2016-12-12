@@ -50,17 +50,29 @@ int BRSSocket::listenSocket(int maxListen)
     return 0;
 }
 
-int BRSSocket::acceptSocket(sockaddr* saddr, socklen_t* len)
+int BRSSocket::acceptSocket()
 {	
-
-   int connfd = accept(sfd, saddr, len);
+   int len = sizeof(peeraddr);
+   int connfd = accept(sfd, (struct sockaddr*)&peeraddr, &len);
    return connfd;
 }
 
-int BRSSocket::accept4Socket(sockaddr* saddr, socklen_t* len, int flags)
+int BRSSocket::accept4Socket()
 {
-
-      int connfd = accept4(sfd, saddr, len,flags);
+      int len = sizeof(peeraddr);
+      int connfd = accept4(sfd, (struct sockaddr*)&peeraddr, &len, SOCK_NONBLOCK | SOCK_CLOEXEC);
+       if(connfd == -1)
+	    {
+	       if(errno == EMFILE)
+	       {
+		 close(idlefd);
+		 idlefd = accept(sfd, NULL, NULL);
+		 close(idlefd);
+		 idlefd = open("dev/null" ,O_RDONLY | O_CLOEXEC);
+		 return -2;
+	      }else
+		return -1;
+	    }
       return connfd;
 }
   
