@@ -17,7 +17,7 @@ BRSClientWorker::BRSClientWorker(int socketfd, int coroutine_id)
 
 void BRSClientWorker::do_something()
 {
-  
+      Log("do_something",this->mContext.coroutine_fd);
 }
   
 }

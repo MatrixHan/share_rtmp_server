@@ -5,10 +5,10 @@ namespace BRS
 {
 
 
-int BRSServer::initServer()
+int BRSServer::initServer(int mport)
 {
    int result;
-   if(server_socket.initSocket(5888)<0)
+   if(server_socket.initSocket(mport)<0)
      return -1;
    if( server_socket.optionSocket(SOL_SOCKET, SO_REUSEADDR)<0)
       return -1;
@@ -18,15 +18,16 @@ int BRSServer::initServer()
      return -1;
    server_epoll = new BRSEpoll(server_socket);
    server_epoll->initEpoll(16);
-   env= BRSCoroutine_open();
+   BRSCoroutine_open();
+   
    return 0;
 }
 
 void BRSServer::start()
 {
+    
    int connfd,coroutineid;
    int result=0;
-   BRSClientWorker  *clientWorker;
    struct BRSClientContext bcc;
   while(1){
     int nready=server_epoll->waitEpoll();
@@ -44,26 +45,40 @@ void BRSServer::start()
 	{
 	  if(server_epoll->isAccept(i))
 	  {
-	      clientWorker = new BRSClientWorker();
 	      connfd = server_socket.accept4Socket();
-	      coroutineid=BRSCoroutine_new(env,(BRSWorker*)clientWorker);
+	      clientWorker =new BRSClientWorker();
+	      coroutineid  = BRSCoroutine_new(clientWorker);
 	      clientWorker->mContext.client_socketfd = connfd;
 	      clientWorker->mContext.coroutine_fd = coroutineid;
-	      brsClientContextMaps[connfd] = *clientWorker;
+	      brsClientContextMaps.insert(std::make_pair(connfd,clientWorker));
 	    if(connfd<0) continue;
 	    result = server_epoll->addEpoll(connfd);
-	  }else if(server_epoll->epoll_in())
+	  }else if(server_epoll->epoll_in(i))
 	  {
 	     connfd = server_epoll->getCfd(i);
-	     *clientWorker = brsClientContextMaps[connfd];
-	     if(BRSCoroutine_status(bcc.coroutine_fd))//if 协程状态为真 则分配时间运行
+	     bccmitor = brsClientContextMaps.find(connfd);
+	     if(bccmitor==brsClientContextMaps.end())
+		  continue; 
+	      else
+		clientWorker=bccmitor->second;
+	     if(BRSCoroutine_status( clientWorker->mContext.coroutine_fd))//if 协程状态为真 则分配时间运行
 	      {
-		BRSCoroutine_resume(bcc.coroutine_fd);//重新分配协程时间
+		BRSCoroutine_resume( clientWorker->mContext.coroutine_fd);//重新分配协程时间
 	      }
 	  }
 	}
   }
-  BRSCoroutine_close(env);
+  BRSCoroutine_close();
+}
+int BRSServer::closeClient(int fd)
+{
+    bccmitor = brsClientContextMaps.find(fd);
+	     if(bccmitor!=brsClientContextMaps.end())
+		clientWorker=bccmitor->second;
+    if(clientWorker){
+    server_epoll->delEpoll(fd);
+    brsClientContextMaps.erase(fd);
+    }
 }
 
   

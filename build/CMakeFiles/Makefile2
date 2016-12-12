@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/brave/projects/share_rtmp_server/build
 CMakeFiles/share_rtmp_server.dir/all:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/depend
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14 "Built target share_rtmp_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target share_rtmp_server"
 .PHONY : CMakeFiles/share_rtmp_server.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/share_rtmp_server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/share_rtmp_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/brave/projects/share_rtmp_server/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brave/projects/share_rtmp_server/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/share_rtmp_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/brave/projects/share_rtmp_server/build/CMakeFiles 0
 .PHONY : CMakeFiles/share_rtmp_server.dir/rule

@@ -3,6 +3,13 @@
 
 namespace BRS {
   
+ // struct schedule * env = NULL;
+  
+BRSCoroutine::BRSCoroutine()
+{
+
+}
+
   
 void BRSCoroutine::fun(schedule* S, void* ud)
 {
@@ -11,37 +18,40 @@ void BRSCoroutine::fun(schedule* S, void* ud)
 }
 
   
-BRSCoroutine* BRSCoroutine::BRSCoroutine_open(void)
+int  BRSCoroutine::BRSCoroutine_open()
 {
-  return env = coroutine_open();
+  env = coroutine_open();
+  if(env)
+    return 0;
+  return -1;
 }
 
-int BRSCoroutine::BRSCoroutine_new(BRSCoroutine* benv,BRSWorker* worker)
+int BRSCoroutine::BRSCoroutine_new(BRSWorker* worker)
 {
    return coroutine_new(env,fun,worker);
 }
 
-void BRSCoroutine::BRSCoroutine_resume(BRSCoroutine* benv, int id)
+void BRSCoroutine::BRSCoroutine_resume(int id)
 {
    coroutine_resume(env,id);
 }
 
-void BRSCoroutine::BRSCoroutine_close(BRSCoroutine* benv)
+void BRSCoroutine::BRSCoroutine_close()
 {
    coroutine_close(env);
 }
 
-int BRSCoroutine::BRSCoroutine_running(BRSCoroutine * benv)
+int BRSCoroutine::BRSCoroutine_running()
 {
   return coroutine_running(env);
 }
 
-int BRSCoroutine::BRSCoroutine_status(BRSCoroutine* benv, int id)
+int BRSCoroutine::BRSCoroutine_status( int id)
 {
   return coroutine_status(env,id);
 }
 
-void BRSCoroutine::BRSCoroutine_yield(BRSCoroutine* benv)
+void BRSCoroutine::BRSCoroutine_yield()
 {
     coroutine_yield(env);
 }

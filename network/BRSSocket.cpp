@@ -52,14 +52,14 @@ int BRSSocket::listenSocket(int maxListen)
 
 int BRSSocket::acceptSocket()
 {	
-   int len = sizeof(peeraddr);
+   unsigned int len = sizeof(peeraddr);
    int connfd = accept(sfd, (struct sockaddr*)&peeraddr, &len);
    return connfd;
 }
 
 int BRSSocket::accept4Socket()
 {
-      int len = sizeof(peeraddr);
+      unsigned int len = sizeof(peeraddr);
       int connfd = accept4(sfd, (struct sockaddr*)&peeraddr, &len, SOCK_NONBLOCK | SOCK_CLOEXEC);
        if(connfd == -1)
 	    {

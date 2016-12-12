@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 project(share_rtmp_server CXX)
 SET(CMAKE_CXX_FLAGS "-std=c++0x -g")
 INCLUDE_DIRECTORIES(objs 
-    objs/hp objs/openssl/include  objs/coroutine/include
+    objs/hp objs/openssl/include  objs/coroutine/include 
     common  core  network  protocol app)
 
 set(SOURCE_FILES brs/share_rtmp_server.cpp)

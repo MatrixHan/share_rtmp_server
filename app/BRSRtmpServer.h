@@ -7,7 +7,9 @@ namespace BRS
 {
   class BRSRtmpServer : public BRSServer
   {
-    
+  public:
+    BRSRtmpServer(int port);
+    void loop();
   };
   
 }

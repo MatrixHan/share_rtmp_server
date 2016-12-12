@@ -32,8 +32,8 @@ namespace BRS {
     int bindSocket();
     int listenSocket(int maxListen);
     
-    int acceptSocket(sockaddr* saddr,socklen_t *len);
-    int accept4Socket(sockaddr* saddr,socklen_t *len,int flags);//return client fd
+    int acceptSocket();
+    int accept4Socket();//return client fd
 
   };
   

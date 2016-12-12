@@ -16,10 +16,15 @@ namespace BRS
     struct BRSSocket server_socket;
     BRSEpoll		*server_epoll;
     BRSClientContextMaps   brsClientContextMaps;
+    BCCMItor 		bccmitor;
+    BRSWorker  *clientWorker;
+    
   public:
-    int initServer();
+    int initServer(int mport);
     
     void start();
+    
+    int closeClient(int fd);
   };
   
 }
