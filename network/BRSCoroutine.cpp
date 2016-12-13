@@ -5,6 +5,13 @@ namespace BRS {
   
  // struct schedule * env = NULL;
   
+BRSWorker::BRSWorker()
+{
+
+}
+
+  
+  
 BRSCoroutine::BRSCoroutine()
 {
 
@@ -14,7 +21,9 @@ BRSCoroutine::BRSCoroutine()
 void BRSCoroutine::fun(schedule* S, void* ud)
 {
     BRSWorker * brsw = static_cast<BRSWorker*>(ud);
+    brsw->mContext.menv = S;
     brsw->do_something();
+//     coroutine_yield(S);
 }
 
   
@@ -28,6 +37,7 @@ int  BRSCoroutine::BRSCoroutine_open()
 
 int BRSCoroutine::BRSCoroutine_new(BRSWorker* worker)
 {
+    //worker->mContext.menv = env;
    return coroutine_new(env,fun,worker);
 }
 
@@ -51,9 +61,9 @@ int BRSCoroutine::BRSCoroutine_status( int id)
   return coroutine_status(env,id);
 }
 
-void BRSCoroutine::BRSCoroutine_yield()
+void BRSCoroutine::BRSCoroutine_yield(struct schedule * penv)
 {
-    coroutine_yield(env);
+    coroutine_yield(penv);
 }
 
   

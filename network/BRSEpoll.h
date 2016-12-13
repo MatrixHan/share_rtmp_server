@@ -10,27 +10,25 @@ namespace BRS
   class  BRSEpoll{
   private:
     int epoll_fd;
-    struct epoll_event sEvent;
-    struct BRSSocket brsSocket;
     EventList clients;
   public:
    
     
-    BRSEpoll(struct BRSSocket psocket);
+    BRSEpoll();
     
-    int initEpoll();
+    int initEpoll( );
     
     int initEpoll(int clients_size);
     
     int waitEpoll();
     
-    int addEpoll(int cfd);
+    int addEpoll(int cfd,int op);
     
     int delEpoll(int cfd);
     
     int getCfd(int index);
     
-    bool isAccept(int i);
+    bool isAccept(int sfd,int i);
     
     bool epoll_in(int i);
     

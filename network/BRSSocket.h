@@ -18,13 +18,14 @@ namespace BRS {
   
   
   
-  struct BRSSocket
+  class BRSSocket
   {
+  public:
     int sfd;//server clr fd
     int idlefd;//open system file fd
     struct sockaddr_in servaddr, peeraddr;
     
-    
+  public:
     BRSSocket();
     ~BRSSocket();
     int initSocket(int port);

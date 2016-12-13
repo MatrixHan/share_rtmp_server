@@ -18,6 +18,7 @@ BRSSocket::~BRSSocket()
 
 int BRSSocket::initSocket(int port)
 {
+      
   if ((sfd=socket(PF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP)) < 0)
 		return -1;
       memset(&servaddr, 0, sizeof(servaddr));
@@ -30,24 +31,18 @@ int BRSSocket::initSocket(int port)
 int BRSSocket::optionSocket(int level, int optname)
 {
     int on=1;
-    if(setsockopt(sfd, level, optname, &on, sizeof(on))<0)
-      return -1;
-    return 0;
+    return setsockopt(sfd, level, optname, &on, sizeof(on));
 }
 
 
 int BRSSocket::bindSocket()
 {
-    if (bind(sfd , (struct sockaddr*)&servaddr, sizeof(struct sockaddr)) < 0)
-	    return -1;
-    return 0;
+    return bind(sfd , (struct sockaddr*)&servaddr, sizeof(struct sockaddr));
 }
 
 int BRSSocket::listenSocket(int maxListen)
 {
-    if (listen(sfd ,maxListen) < 0)
-	    return -1;
-    return 0;
+    return listen(sfd ,maxListen);
 }
 
 int BRSSocket::acceptSocket()

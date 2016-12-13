@@ -474,6 +474,33 @@ network/BRSEpoll.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.s
 .PHONY : network/BRSEpoll.cpp.s
 
+network/BRSReadWriter.o: network/BRSReadWriter.cpp.o
+
+.PHONY : network/BRSReadWriter.o
+
+# target to build an object file
+network/BRSReadWriter.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o
+.PHONY : network/BRSReadWriter.cpp.o
+
+network/BRSReadWriter.i: network/BRSReadWriter.cpp.i
+
+.PHONY : network/BRSReadWriter.i
+
+# target to preprocess a source file
+network/BRSReadWriter.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.i
+.PHONY : network/BRSReadWriter.cpp.i
+
+network/BRSReadWriter.s: network/BRSReadWriter.cpp.s
+
+.PHONY : network/BRSReadWriter.s
+
+# target to generate assembly for a file
+network/BRSReadWriter.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.s
+.PHONY : network/BRSReadWriter.cpp.s
+
 network/BRSServer.o: network/BRSServer.cpp.o
 
 .PHONY : network/BRSServer.o
@@ -555,6 +582,33 @@ network/BRSStream.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.s
 .PHONY : network/BRSStream.cpp.s
 
+protocol/BRSProtocol.o: protocol/BRSProtocol.cpp.o
+
+.PHONY : protocol/BRSProtocol.o
+
+# target to build an object file
+protocol/BRSProtocol.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o
+.PHONY : protocol/BRSProtocol.cpp.o
+
+protocol/BRSProtocol.i: protocol/BRSProtocol.cpp.i
+
+.PHONY : protocol/BRSProtocol.i
+
+# target to preprocess a source file
+protocol/BRSProtocol.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.i
+.PHONY : protocol/BRSProtocol.cpp.i
+
+protocol/BRSProtocol.s: protocol/BRSProtocol.cpp.s
+
+.PHONY : protocol/BRSProtocol.s
+
+# target to generate assembly for a file
+protocol/BRSProtocol.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.s
+.PHONY : protocol/BRSProtocol.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -603,6 +657,9 @@ help:
 	@echo "... network/BRSEpoll.o"
 	@echo "... network/BRSEpoll.i"
 	@echo "... network/BRSEpoll.s"
+	@echo "... network/BRSReadWriter.o"
+	@echo "... network/BRSReadWriter.i"
+	@echo "... network/BRSReadWriter.s"
 	@echo "... network/BRSServer.o"
 	@echo "... network/BRSServer.i"
 	@echo "... network/BRSServer.s"
@@ -612,6 +669,9 @@ help:
 	@echo "... network/BRSStream.o"
 	@echo "... network/BRSStream.i"
 	@echo "... network/BRSStream.s"
+	@echo "... protocol/BRSProtocol.o"
+	@echo "... protocol/BRSProtocol.i"
+	@echo "... protocol/BRSProtocol.s"
 .PHONY : help
 
 

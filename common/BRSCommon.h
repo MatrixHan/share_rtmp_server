@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <stddef.h>
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -26,6 +27,7 @@
 #include <fstream>
 #include <stdarg.h>
 #include "BRSHeader.h"
+
 
 namespace BRS
 {

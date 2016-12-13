@@ -1,12 +1,13 @@
 #pragma once
 
 #include "../common/BRSCommon.h"
+#include "BRSLog.h"
 #define BUFLEN 255   
 
 namespace BRS 
 {
  
-  static long long getTimeDec();
+  static  long long getTimeDec();
  
   
   inline BString FloatToString(BFloat num)
@@ -25,6 +26,16 @@ namespace BRS
     BString re;
     ss >> re;
     return re;
+  }
+  
+  inline BString LongToString(long long num)
+  {
+    std::ostringstream ss;
+    ss << num;
+    BString result;  
+    std::istringstream is(ss.str());  
+    is>>result; 
+    return result;
   }
   
   inline BInt RandomInt(BInt from = 0, BInt to = 10)
@@ -79,18 +90,11 @@ namespace BRS
     
   }
   
-  inline BString timeFormat(long long timedec)
-  {
-      time_t tTime = time(NULL) ;   
-      struct tm *tmTime;   //定义tm类型指针
-      tmTime = localtime(&tTime);  //获取时间
-      
-      char tmpBuf[BUFLEN];   
-      strftime(tmpBuf, BUFLEN, "%F %T", tmTime); //format date and time. 
-      return BString(tmpBuf);
-      
-  }
+  BString timeFormat(long long timedec);
+  
   
   BString now();
+  
+  long long getCurrentTime();
   
 }

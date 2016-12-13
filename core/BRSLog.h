@@ -12,6 +12,8 @@ namespace BRS
   
   void Log(const BChar * string , ...);
   
+  void LogBS(const BString str);
+  
   void CloseLog();
   
 }

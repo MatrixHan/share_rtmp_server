@@ -3,21 +3,33 @@
 
 namespace BRS 
 {
-BRSClientWorker::BRSClientWorker()
-{
 
+
+BRSClientWorker::BRSClientWorker(int pfd)
+{
+      protocol = new BRSProtocol(pfd);
 }
+
 
   
-BRSClientWorker::BRSClientWorker(int socketfd, int coroutine_id)
+BRSClientWorker::~BRSClientWorker()
 {
-    mContext.client_socketfd= socketfd;
-    mContext.coroutine_fd = coroutine_id;
+
 }
+
+
 
 void BRSClientWorker::do_something()
 {
-      Log("do_something",this->mContext.coroutine_fd);
+      
+     
+     int result;
+     char buf[1024];
+     while((result = read(this->mContext.client_socketfd,buf,1024))>0)
+     {
+       LogBS("do_something"+IntToString(this->mContext.coroutine_fd)); 
+       coroutine_yield(this->mContext.menv);
+    }
 }
   
 }

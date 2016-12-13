@@ -3,7 +3,7 @@
 #include "../common/BRSCommon.h"
 #include "../app/BRSClientContext.h"
 extern "C"{
-#include "../objs/coroutine/include/coroutine.h"
+#include <coroutine.h>
 }
 
 
@@ -14,6 +14,7 @@ class BRSWorker
 {
 public:
     struct BRSClientContext mContext;
+    BRSWorker();
     virtual void do_something()=0;
     virtual ~BRSWorker(){}
 };
@@ -22,8 +23,8 @@ class BRSCoroutine
 {
  
 public:
-  BRSCoroutine(); 
   
+  BRSCoroutine(); 
   static void fun(struct schedule *, void *ud);
   int BRSCoroutine_open();
   void BRSCoroutine_close();
@@ -31,9 +32,9 @@ public:
   void BRSCoroutine_resume( int id);
   int BRSCoroutine_status( int id);
   int BRSCoroutine_running();
-  void BRSCoroutine_yield();
+  static void BRSCoroutine_yield(struct schedule *);
  
-  
+ 
 public:
   struct schedule * env;
 };

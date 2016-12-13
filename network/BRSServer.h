@@ -13,13 +13,14 @@ namespace BRS
   {
     
   private:
-    struct BRSSocket server_socket;
-    BRSEpoll		*server_epoll;
+    BRSSocket server_socket;
+    BRSEpoll		server_epoll;
     BRSClientContextMaps   brsClientContextMaps;
     BCCMItor 		bccmitor;
     BRSWorker  *clientWorker;
     
   public:
+    BRSServer();
     int initServer(int mport);
     
     void start();

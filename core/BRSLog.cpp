@@ -38,6 +38,12 @@ void Log(const BChar* string, ...)
     GLogStream->flush();
 }
 
+void LogBS(const BString str)
+{
+  Log(str.c_str());
+}
+
+
 void CloseLog()
 {
       GLogStream->close();

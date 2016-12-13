@@ -6,7 +6,7 @@ namespace BRS
  
   struct BRSPacket;
   struct BRSGop;
-  struct BRSSocket;
+  class  BRSSocket;
   struct BRSUser;
   struct BRSClientContext;
   
@@ -14,10 +14,15 @@ namespace BRS
   class BRSWorker;
   class BRSClientWorker;
   
+  
   class BRSEpoll;
   class BRSCoroutine;
   class BRSServer;
-  class BRSInputStream;
-  class BRSOutputStream;
+  class BRSStream;
+  class BRSBitStream;
+  class BRSReaderWriterStream;
+  
   class BRSRtmpServer;
+  
+  class BRSProtocol;
 }

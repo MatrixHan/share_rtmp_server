@@ -3,11 +3,17 @@
 namespace BRS 
 {
   
-BRSRtmpServer::BRSRtmpServer(int port)
+BRSRtmpServer::BRSRtmpServer(int port):mport(port)
 {
    
-    initServer(port);
+    
 }
+
+int BRSRtmpServer::initRtmpServer()
+{
+    return initServer(mport);
+}
+
 
 void BRSRtmpServer::loop()
 {

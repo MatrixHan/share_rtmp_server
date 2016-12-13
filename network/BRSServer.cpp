@@ -3,24 +3,27 @@
 
 namespace BRS 
 {
+BRSServer::BRSServer():clientWorker(NULL)
+{
+
+}
 
 
 int BRSServer::initServer(int mport)
 {
-   int result;
-   if(server_socket.initSocket(mport)<0)
+   int result=0;
+   if((result=server_socket.initSocket(mport))<0)
      return -1;
-   if( server_socket.optionSocket(SOL_SOCKET, SO_REUSEADDR)<0)
+   if( (result=server_socket.optionSocket(SOL_SOCKET, SO_REUSEADDR))<0)
       return -1;
-   if( server_socket.bindSocket()<0)
+   if((result= server_socket.bindSocket())<0)
      return -1;
-   if(server_socket.listenSocket(SOMAXCONN)<0)
+   if((result=server_socket.listenSocket(SOMAXCONN))<0)
      return -1;
-   server_epoll = new BRSEpoll(server_socket);
-   server_epoll->initEpoll(16);
-   BRSCoroutine_open();
-   
-   return 0;
+   result=server_epoll.initEpoll(16);
+   result=BRSCoroutine_open();
+   result=server_epoll.addEpoll(server_socket.sfd,EPOLLIN);
+   return result;
 }
 
 void BRSServer::start()
@@ -28,9 +31,8 @@ void BRSServer::start()
     
    int connfd,coroutineid;
    int result=0;
-   struct BRSClientContext bcc;
   while(1){
-    int nready=server_epoll->waitEpoll();
+    int nready=server_epoll.waitEpoll();
     if (nready == -1)
 	{
 	    if (errno == EINTR)
@@ -39,23 +41,23 @@ void BRSServer::start()
 	}
 	if (nready == 0)
 	    continue;
-	if ((size_t)nready == server_epoll->client_size())
-	    server_epoll->resize_client();
+	if ((size_t)nready == server_epoll.client_size())
+	    server_epoll.resize_client();
 	for(int i = 0; i < nready; i++)
 	{
-	  if(server_epoll->isAccept(i))
+	  if(server_epoll.isAccept(server_socket.sfd,i))
 	  {
 	      connfd = server_socket.accept4Socket();
-	      clientWorker =new BRSClientWorker();
+	      clientWorker =new BRSClientWorker(connfd);
 	      coroutineid  = BRSCoroutine_new(clientWorker);
 	      clientWorker->mContext.client_socketfd = connfd;
 	      clientWorker->mContext.coroutine_fd = coroutineid;
 	      brsClientContextMaps.insert(std::make_pair(connfd,clientWorker));
 	    if(connfd<0) continue;
-	    result = server_epoll->addEpoll(connfd);
-	  }else if(server_epoll->epoll_in(i))
+	    result = server_epoll.addEpoll(connfd,EPOLLIN);
+	  }else if(server_epoll.epoll_in(i))
 	  {
-	     connfd = server_epoll->getCfd(i);
+	     connfd = server_epoll.getCfd(i);
 	     bccmitor = brsClientContextMaps.find(connfd);
 	     if(bccmitor==brsClientContextMaps.end())
 		  continue; 
@@ -76,7 +78,7 @@ int BRSServer::closeClient(int fd)
 	     if(bccmitor!=brsClientContextMaps.end())
 		clientWorker=bccmitor->second;
     if(clientWorker){
-    server_epoll->delEpoll(fd);
+    server_epoll.delEpoll(fd);
     brsClientContextMaps.erase(fd);
     }
 }

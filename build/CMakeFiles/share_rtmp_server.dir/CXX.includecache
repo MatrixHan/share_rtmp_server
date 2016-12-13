@@ -6,11 +6,31 @@
 
 #IncludeRegexTransform: 
 
+../objs/coroutine/include/coroutine.h
+stdio.h
+-
+stdlib.h
+-
+assert.h
+-
+stddef.h
+-
+string.h
+-
+stdint.h
+-
+sys/ucontext.h
+-
+ucontext.h
+-
+
 /home/brave/projects/share_rtmp_server/app/BRSClientContext.cpp
 
 /home/brave/projects/share_rtmp_server/app/BRSClientContext.h
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
+../objs/coroutine/include/coroutine.h
+/home/brave/projects/share_rtmp_server/objs/coroutine/include/coroutine.h
 
 /home/brave/projects/share_rtmp_server/app/BRSClientWorker.cpp
 BRSClientWorker.h
@@ -25,6 +45,8 @@ BRSClientContext.h
 /home/brave/projects/share_rtmp_server/app/BRSClientContext.h
 ../network/BRSCoroutine.h
 /home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
+../protocol/BRSProtocol.h
+/home/brave/projects/share_rtmp_server/protocol/BRSProtocol.h
 
 /home/brave/projects/share_rtmp_server/app/BRSRtmpServer.cpp
 BRSRtmpServer.h
@@ -35,14 +57,16 @@ BRSRtmpServer.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
 ../network/BRSServer.h
 /home/brave/projects/share_rtmp_server/network/BRSServer.h
+../core/BRSLog.h
+/home/brave/projects/share_rtmp_server/core/BRSLog.h
+../core/BRSUtils.h
+/home/brave/projects/share_rtmp_server/core/BRSUtils.h
 
 /home/brave/projects/share_rtmp_server/app/BRSUser.cpp
 
 /home/brave/projects/share_rtmp_server/brs/share_rtmp_server.cpp
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
-../core/BRSLog.h
-/home/brave/projects/share_rtmp_server/core/BRSLog.h
 ../app/BRSRtmpServer.h
 /home/brave/projects/share_rtmp_server/app/BRSRtmpServer.h
 
@@ -58,6 +82,8 @@ stdio.h
 stdlib.h
 -
 stdint.h
+-
+stddef.h
 -
 string.h
 -
@@ -129,6 +155,8 @@ BRSUtils.h
 /home/brave/projects/share_rtmp_server/core/BRSUtils.h
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
+BRSLog.h
+/home/brave/projects/share_rtmp_server/core/BRSLog.h
 
 /home/brave/projects/share_rtmp_server/network/BRSCoroutine.cpp
 BRSCoroutine.h
@@ -139,8 +167,8 @@ BRSCoroutine.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
 ../app/BRSClientContext.h
 /home/brave/projects/share_rtmp_server/app/BRSClientContext.h
-../objs/coroutine/include/coroutine.h
-/home/brave/projects/share_rtmp_server/objs/coroutine/include/coroutine.h
+coroutine.h
+-
 
 /home/brave/projects/share_rtmp_server/network/BRSEpoll.cpp
 BRSEpoll.h
@@ -151,6 +179,18 @@ BRSEpoll.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
 BRSSocket.h
 /home/brave/projects/share_rtmp_server/network/BRSSocket.h
+
+/home/brave/projects/share_rtmp_server/network/BRSReadWriter.cpp
+BRSReadWriter.h
+/home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
+
+/home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
+../common/BRSCommon.h
+/home/brave/projects/share_rtmp_server/common/BRSCommon.h
+../core/BRSUtils.h
+/home/brave/projects/share_rtmp_server/core/BRSUtils.h
+errno.h
+-
 
 /home/brave/projects/share_rtmp_server/network/BRSServer.cpp
 BRSServer.h
@@ -195,10 +235,18 @@ sys/socket.h
 -
 
 /home/brave/projects/share_rtmp_server/network/BRSStream.cpp
+BRSStream.h
+/home/brave/projects/share_rtmp_server/network/BRSStream.h
 
 /home/brave/projects/share_rtmp_server/network/BRSStream.h
 ../common/BRSCommon.h
 /home/brave/projects/share_rtmp_server/common/BRSCommon.h
+assert.h
+-
+sys/types.h
+-
+string
+-
 
 /home/brave/projects/share_rtmp_server/objs/coroutine/include/coroutine.h
 stdio.h
@@ -217,4 +265,16 @@ sys/ucontext.h
 -
 ucontext.h
 -
+
+/home/brave/projects/share_rtmp_server/protocol/BRSProtocol.cpp
+BRSProtocol.h
+/home/brave/projects/share_rtmp_server/protocol/BRSProtocol.h
+
+/home/brave/projects/share_rtmp_server/protocol/BRSProtocol.h
+../common/BRSCommon.h
+/home/brave/projects/share_rtmp_server/common/BRSCommon.h
+../network/BRSStream.h
+/home/brave/projects/share_rtmp_server/network/BRSStream.h
+../network/BRSReadWriter.h
+/home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
 
