@@ -10,7 +10,7 @@ int main(int argc,char *argv[])
   InitLog("BRS.log");
   
   Log("project init ");
-  BRSRtmpServer server(5888);
+  BRSRtmpServer server(1935);
   Log("server init ");
   if(server.initRtmpServer()==0)
   server.loop();

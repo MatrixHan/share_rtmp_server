@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,7 +28,7 @@
 #include <fstream>
 #include <stdarg.h>
 #include "BRSHeader.h"
-
+#include "BRSErrorDef.h"
 
 namespace BRS
 {
@@ -71,5 +72,6 @@ namespace BRS
 	} while(0)
 
   
+
   
 }

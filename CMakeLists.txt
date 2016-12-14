@@ -14,7 +14,7 @@ ${PROJECT_SOURCE_DIR}/brs
 )
 
 INCLUDE_DIRECTORIES(objs 
-    objs/hp objs/openssl/include  objs/coroutine/include  
+    objs/hp  objs/openssl/include   objs/coroutine/include  
     common  core  network  protocol app)
 
 set(SOURCE_FILES brs/share_rtmp_server.cpp )
@@ -29,9 +29,9 @@ ADD_DEFINITIONS("-g -O0")
 ADD_EXECUTABLE(share_rtmp_server   ${SOURCE_FILES})
 TARGET_LINK_LIBRARIES(share_rtmp_server dl )
 TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/coroutine/lib/coroutinelib.a)
-#TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libssl.a)
-#TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libcrypto.a)
+TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libssl.a)
+TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libcrypto.a)
 #TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/hp/libhttp_parser.a)
-#TARGET_LINK_LIBRARIES(share_rtmp_server -ldl )
+TARGET_LINK_LIBRARIES(share_rtmp_server -ldl )
 
 

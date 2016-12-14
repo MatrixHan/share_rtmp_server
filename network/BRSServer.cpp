@@ -63,9 +63,11 @@ void BRSServer::start()
 		  continue; 
 	      else
 		clientWorker=bccmitor->second;
-	     if(BRSCoroutine_status( clientWorker->mContext.coroutine_fd))//if 协程状态为真 则分配时间运行
+	     //if 协程状态为真 则分配时间运行
+	     if(BRSCoroutine_status( clientWorker->mContext.coroutine_fd))
 	      {
-		BRSCoroutine_resume( clientWorker->mContext.coroutine_fd);//重新分配协程时间
+		//重新分配协程时间
+		BRSCoroutine_resume( clientWorker->mContext.coroutine_fd);
 	      }
 	  }
 	}
@@ -79,7 +81,7 @@ int BRSServer::closeClient(int fd)
 		clientWorker=bccmitor->second;
     if(clientWorker){
     server_epoll.delEpoll(fd);
-    brsClientContextMaps.erase(fd);
+    brsClientContextMaps.erase(bccmitor);
     }
 }
 

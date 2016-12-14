@@ -8,6 +8,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../app/BRSClientCont
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../app/BRSClientWorker.cpp
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../app/BRSClientWorker.h
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../core/BRSUtils.h
@@ -23,6 +24,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../app/BRSClientWorker
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../app/BRSRtmpServer.cpp
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../app/BRSRtmpServer.h
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../core/BRSUtils.h
@@ -43,6 +45,7 @@ CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../app/BRSClientWo
 CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../app/BRSRtmpServer.h
 CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../brs/share_rtmp_server.cpp
 CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../core/BRSUtils.h
@@ -57,24 +60,55 @@ CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o: ../protocol/BRSPro
 
 CMakeFiles/share_rtmp_server.dir/common/BRSCommon.cpp.o: ../common/BRSCommon.cpp
 CMakeFiles/share_rtmp_server.dir/common/BRSCommon.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/common/BRSCommon.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/common/BRSCommon.cpp.o: ../common/BRSHeader.h
 
 CMakeFiles/share_rtmp_server.dir/common/BRSHeader.cpp.o: ../common/BRSHeader.cpp
 
 CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o: ../common/BRSMath.cpp
 CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.o: ../common/BRSMath.h
 
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/asn1.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/bio.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/bn.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/crypto.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/dh.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/e_os2.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/ebcdic.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/evp.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/hmac.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/obj_mac.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/objects.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/opensslconf.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/opensslv.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/ossl_typ.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/safestack.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/stack.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../objs/openssl/include/openssl/symhacks.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../common/BRSErrorDef.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../common/BRSHeader.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../core/BRSAutoFree.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../core/BRSHandShake.cpp
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../core/BRSHandShake.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../core/BRSLog.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../core/BRSUtils.h
+CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o: ../network/BRSReadWriter.h
+
 CMakeFiles/share_rtmp_server.dir/core/BRSJson.cpp.o: ../core/BRSJson.cpp
 
 CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o: ../core/BRSLog.cpp
 CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o: ../core/BRSUtils.h
 
 CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o: ../core/BRSUtils.cpp
@@ -83,18 +117,21 @@ CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.o: ../core/BRSUtils.h
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../objs/coroutine/include/coroutine.h
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../app/BRSClientContext.h
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../network/BRSCoroutine.cpp
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../network/BRSCoroutine.h
 CMakeFiles/share_rtmp_server.dir/network/BRSCoroutine.cpp.o: ../objs/coroutine/include/coroutine.h
 
 CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../network/BRSEpoll.cpp
 CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../network/BRSEpoll.h
 CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o: ../network/BRSSocket.h
 
 CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o: ../core/BRSUtils.h
@@ -105,6 +142,7 @@ CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../objs/coroutine/incl
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../app/BRSClientContext.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../app/BRSClientWorker.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../core/BRSUtils.h
@@ -119,16 +157,19 @@ CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../objs/coroutine/incl
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o: ../protocol/BRSProtocol.h
 
 CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../network/BRSSocket.cpp
 CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o: ../network/BRSSocket.h
 
 CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.o: ../network/BRSStream.cpp
 CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.o: ../network/BRSStream.h
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: ../common/BRSCommon.h
+CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: ../common/BRSErrorDef.h
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: ../common/BRSHeader.h
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: ../core/BRSLog.h
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: ../core/BRSUtils.h

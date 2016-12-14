@@ -20,7 +20,7 @@ namespace BRS
   class BRSServer;
   class BRSStream;
   class BRSBitStream;
-  class BRSReaderWriterStream;
+  class BRSReadWriter;
   
   class BRSRtmpServer;
   

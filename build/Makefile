@@ -339,6 +339,33 @@ common/BRSMath.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.s
 .PHONY : common/BRSMath.cpp.s
 
+core/BRSHandShake.o: core/BRSHandShake.cpp.o
+
+.PHONY : core/BRSHandShake.o
+
+# target to build an object file
+core/BRSHandShake.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o
+.PHONY : core/BRSHandShake.cpp.o
+
+core/BRSHandShake.i: core/BRSHandShake.cpp.i
+
+.PHONY : core/BRSHandShake.i
+
+# target to preprocess a source file
+core/BRSHandShake.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.i
+.PHONY : core/BRSHandShake.cpp.i
+
+core/BRSHandShake.s: core/BRSHandShake.cpp.s
+
+.PHONY : core/BRSHandShake.s
+
+# target to generate assembly for a file
+core/BRSHandShake.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.s
+.PHONY : core/BRSHandShake.cpp.s
+
 core/BRSJson.o: core/BRSJson.cpp.o
 
 .PHONY : core/BRSJson.o
@@ -642,6 +669,9 @@ help:
 	@echo "... common/BRSMath.o"
 	@echo "... common/BRSMath.i"
 	@echo "... common/BRSMath.s"
+	@echo "... core/BRSHandShake.o"
+	@echo "... core/BRSHandShake.i"
+	@echo "... core/BRSHandShake.s"
 	@echo "... core/BRSJson.o"
 	@echo "... core/BRSJson.i"
 	@echo "... core/BRSJson.s"
