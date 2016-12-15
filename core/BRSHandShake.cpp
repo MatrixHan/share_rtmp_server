@@ -1055,46 +1055,46 @@ int BRSComplexHandShake::handshake(BRSReadWriter & srw, char* _c1)
 	if (!_random_initialized) {
 		srand(0);
 		_random_initialized = true;
-		Log("srand initialized the random.");
+		brs_info("srand initialized the random.");
 	}
 	
 	// decode c1
 	c1s1 c1;
 	// try schema0.
 	if ((ret = c1.c1_parse(_c1, brs_schema0)) != ERROR_SUCCESS) {
-		Log("parse c1 schema%d error. ret=%d", brs_schema0, ret);
+		brs_error("parse c1 schema%d error. ret=%d", brs_schema0, ret);
 		return ret;
 	}
 	// try schema1
 	bool is_valid = false;
 	if ((ret = c1.c1_validate_digest(is_valid)) != ERROR_SUCCESS || !is_valid) {
 		if ((ret = c1.c1_parse(_c1, brs_schema1)) != ERROR_SUCCESS) {
-			Log("parse c1 schema%d error. ret=%d", brs_schema1, ret);
+			brs_error("parse c1 schema%d error. ret=%d", brs_schema1, ret);
 			return ret;
 		}
 		
 		if ((ret = c1.c1_validate_digest(is_valid)) != ERROR_SUCCESS || !is_valid) {
 			ret = ERROR_RTMP_TRY_SIMPLE_HS;
-			Log("all schema valid failed, try simple handshake. ret=%d", ret);
+			brs_error("all schema valid failed, try simple handshake. ret=%d", ret);
 			return ret;
 		}
 	}
-	Log("decode c1 success.");
+	brs_info("decode c1 success.");
 	
 	// encode s1
 	c1s1 s1;
 	if ((ret = s1.s1_create(&c1)) != ERROR_SUCCESS) {
-		Log("create s1 from c1 failed. ret=%d", ret);
+		brs_error("create s1 from c1 failed. ret=%d", ret);
 		return ret;
 	}
-	Log("create s1 from c1 success.");
+	brs_info("create s1 from c1 success.");
 	
 	c2s2 s2;
 	if ((ret = s2.s2_create(&c1)) != ERROR_SUCCESS) {
-		Log("create s2 from c1 failed. ret=%d", ret);
+		brs_error("create s2 from c1 failed. ret=%d", ret);
 		return ret;
 	}
-	Log("create s2 from c1 success.");
+	brs_info("create s2 from c1 success.");
 	
 	// sendout s0s1s2
 	char* s0s1s2 = new char[3073];
@@ -1103,20 +1103,20 @@ int BRSComplexHandShake::handshake(BRSReadWriter & srw, char* _c1)
 	s0s1s2[0] = 0x03;
 	s1.dump(s0s1s2 + 1);
 	s2.dump(s0s1s2 + 1537);
-    if ((ret = srw.writet(s0s1s2, 3073, &nsize)) != ERROR_SUCCESS) {
-        Log("complex handshake send s0s1s2 failed. ret=%d", ret);
+    if ((ret = srw.writen(s0s1s2, 3073, &nsize)) != ERROR_SUCCESS) {
+        brs_error("complex handshake send s0s1s2 failed. ret=%d", ret);
         return ret;
     }
-    Log("complex handshake send s0s1s2 success.");
+    brs_info("complex handshake send s0s1s2 success.");
     
     // recv c2
     char* c2 = new char[1536];
     BrsAutoFree(char, c2, true);
-    if ((ret = srw.readt(c2, 1536, &nsize)) != ERROR_SUCCESS) {
-        Log("complex handshake read c2 failed. ret=%d", ret);
+    if ((ret = srw.readn(c2, 1536, &nsize)) != ERROR_SUCCESS) {
+        brs_error("complex handshake read c2 failed. ret=%d", ret);
         return ret;
     }
-    Log("complex handshake read c2 success.");
+    brs_info("complex handshake read c2 success.");
 	
 	return ret;
 	
@@ -1130,6 +1130,7 @@ BRSSimpleHandShake::~BRSSimpleHandShake(){}
 int BRSSimpleHandShake::handshake(BRSReadWriter &srw, char* c1)
 {
       
+  return 0;
 }
 
   

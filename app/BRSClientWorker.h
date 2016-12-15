@@ -4,23 +4,22 @@
 #include "../core/BRSLog.h"
 #include "BRSClientContext.h"
 #include "../network/BRSCoroutine.h"
+#include "../core/BRSHandShake.h"
 #include "../protocol/BRSProtocol.h"
 
 namespace BRS 
 {
-  typedef std::vector< BRSWorker*> BRSClientContexts;
-  typedef std::map<int ,  BRSWorker*>	BRSClientContextMaps;
-  typedef std::map<int ,  BRSWorker*>::iterator	BCCMItor;
-  class BRSWorker;
-  class BRSReaderWriterStream;
+  class BRSServer;
   class BRSClientWorker:virtual public BRSWorker 
   {
   private:
    BRSProtocol  *protocol;
+   BRSComplexHandShake * complexHandshake;
   public:
-    BRSClientWorker(int pfd);
+    BRSClientWorker(int pfd,BRSServer *mserver);
     virtual ~BRSClientWorker();
     virtual  void do_something();
+    virtual  int  rtmpHandshake();
     
   };
   

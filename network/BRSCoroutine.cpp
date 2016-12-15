@@ -5,7 +5,7 @@ namespace BRS {
   
  // struct schedule * env = NULL;
   
-BRSWorker::BRSWorker()
+BRSWorker::BRSWorker(BRSServer * mserver):brsServer(mserver)
 {
 
 }

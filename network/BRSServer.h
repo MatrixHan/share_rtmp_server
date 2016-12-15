@@ -4,22 +4,23 @@
 #include "BRSEpoll.h"
 #include "BRSSocket.h"
 #include "BRSStream.h"
-#include "../app/BRSClientContext.h"
 #include "../app/BRSClientWorker.h"
+#include "BRSPublicEntity.h"
 #include "BRSCoroutine.h"
 namespace BRS 
 {
+  
   class BRSServer:public BRSCoroutine
   {
     
   private:
     BRSSocket server_socket;
-    BRSEpoll		server_epoll;
-    BRSClientContextMaps   brsClientContextMaps;
     BCCMItor 		bccmitor;
     BRSWorker  *clientWorker;
-    
+    BRSClientContextMaps  * brsClientContextMaps;
+    BRSEpoll		 * server_epoll;
   public:
+    
     BRSServer();
     int initServer(int mport);
     

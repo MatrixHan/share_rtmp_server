@@ -11,10 +11,16 @@ CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o
  /home/brave/projects/share_rtmp_server/common/BRSCommon.h
  /home/brave/projects/share_rtmp_server/common/BRSErrorDef.h
  /home/brave/projects/share_rtmp_server/common/BRSHeader.h
+ /home/brave/projects/share_rtmp_server/core/BRSAutoFree.h
+ /home/brave/projects/share_rtmp_server/core/BRSHandShake.h
  /home/brave/projects/share_rtmp_server/core/BRSLog.h
  /home/brave/projects/share_rtmp_server/core/BRSUtils.h
  /home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
+ /home/brave/projects/share_rtmp_server/network/BRSEpoll.h
+ /home/brave/projects/share_rtmp_server/network/BRSPublicEntity.h
  /home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
+ /home/brave/projects/share_rtmp_server/network/BRSServer.h
+ /home/brave/projects/share_rtmp_server/network/BRSSocket.h
  /home/brave/projects/share_rtmp_server/network/BRSStream.h
  /home/brave/projects/share_rtmp_server/objs/coroutine/include/coroutine.h
  /home/brave/projects/share_rtmp_server/protocol/BRSProtocol.h
@@ -27,10 +33,13 @@ CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o
  /home/brave/projects/share_rtmp_server/common/BRSCommon.h
  /home/brave/projects/share_rtmp_server/common/BRSErrorDef.h
  /home/brave/projects/share_rtmp_server/common/BRSHeader.h
+ /home/brave/projects/share_rtmp_server/core/BRSAutoFree.h
+ /home/brave/projects/share_rtmp_server/core/BRSHandShake.h
  /home/brave/projects/share_rtmp_server/core/BRSLog.h
  /home/brave/projects/share_rtmp_server/core/BRSUtils.h
  /home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
  /home/brave/projects/share_rtmp_server/network/BRSEpoll.h
+ /home/brave/projects/share_rtmp_server/network/BRSPublicEntity.h
  /home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
  /home/brave/projects/share_rtmp_server/network/BRSServer.h
  /home/brave/projects/share_rtmp_server/network/BRSSocket.h
@@ -48,10 +57,13 @@ CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o
  /home/brave/projects/share_rtmp_server/common/BRSCommon.h
  /home/brave/projects/share_rtmp_server/common/BRSErrorDef.h
  /home/brave/projects/share_rtmp_server/common/BRSHeader.h
+ /home/brave/projects/share_rtmp_server/core/BRSAutoFree.h
+ /home/brave/projects/share_rtmp_server/core/BRSHandShake.h
  /home/brave/projects/share_rtmp_server/core/BRSLog.h
  /home/brave/projects/share_rtmp_server/core/BRSUtils.h
  /home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
  /home/brave/projects/share_rtmp_server/network/BRSEpoll.h
+ /home/brave/projects/share_rtmp_server/network/BRSPublicEntity.h
  /home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
  /home/brave/projects/share_rtmp_server/network/BRSServer.h
  /home/brave/projects/share_rtmp_server/network/BRSSocket.h
@@ -101,6 +113,7 @@ CMakeFiles/share_rtmp_server.dir/core/BRSHandShake.cpp.o
 CMakeFiles/share_rtmp_server.dir/core/BRSJson.cpp.o
  /home/brave/projects/share_rtmp_server/core/BRSJson.cpp
 CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.o
+ ../objs/coroutine/include/coroutine.h
  /home/brave/projects/share_rtmp_server/common/BRSCommon.h
  /home/brave/projects/share_rtmp_server/common/BRSErrorDef.h
  /home/brave/projects/share_rtmp_server/common/BRSHeader.h
@@ -145,10 +158,13 @@ CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o
  /home/brave/projects/share_rtmp_server/common/BRSCommon.h
  /home/brave/projects/share_rtmp_server/common/BRSErrorDef.h
  /home/brave/projects/share_rtmp_server/common/BRSHeader.h
+ /home/brave/projects/share_rtmp_server/core/BRSAutoFree.h
+ /home/brave/projects/share_rtmp_server/core/BRSHandShake.h
  /home/brave/projects/share_rtmp_server/core/BRSLog.h
  /home/brave/projects/share_rtmp_server/core/BRSUtils.h
  /home/brave/projects/share_rtmp_server/network/BRSCoroutine.h
  /home/brave/projects/share_rtmp_server/network/BRSEpoll.h
+ /home/brave/projects/share_rtmp_server/network/BRSPublicEntity.h
  /home/brave/projects/share_rtmp_server/network/BRSReadWriter.h
  /home/brave/projects/share_rtmp_server/network/BRSServer.cpp
  /home/brave/projects/share_rtmp_server/network/BRSServer.h

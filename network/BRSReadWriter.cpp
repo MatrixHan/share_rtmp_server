@@ -110,5 +110,63 @@ int BRSReadWriter::writet(const void* buf, size_t size, ssize_t* nwrite)
     return ret;
 }
 
+int BRSReadWriter::readn(const void* buf ,size_t count, ssize_t* nread)
+{
+    size_t nleft = count;
+    void *bufp = (void *)buf;
+    
+    while(nleft > 0)
+    {
+      if ((*nread = read(sfd ,bufp ,nleft))<0)
+      {
+	      if (errno == EINTR||errno == EAGAIN)
+	      {
+		  continue;
+	      }
+	      else
+	      {
+		  return -1;
+	      }
+      }
+      else if(*nread == 0)
+      {
+	  break;
+      }
+      bufp += *nread;
+      nleft -=*nread;
+      
+    }
+     return  0;
+}
+int BRSReadWriter::writen(const void* buf ,size_t count,ssize_t* nwrite)
+{
+    size_t nleft = count;
+    ssize_t nwritten;
+    void *bufp = (void *)buf;
+    
+    while(nleft > 0)
+    {
+      if ((nwritten = write(sfd ,bufp ,nleft))<0)
+      {
+	      if (errno == EINTR||errno == EAGAIN)
+	      {
+		  continue;
+	      }
+	      else
+	      {
+		  return -1;
+	      }
+      }
+      else if(nwritten == 0)
+      {
+	  continue;
+      }
+      bufp += nwritten;
+      nleft -=nwritten;
+      
+    }
+     return  0;
+  
+}
 
 }

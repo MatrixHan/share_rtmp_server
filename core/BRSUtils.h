@@ -7,7 +7,7 @@
 namespace BRS 
 {
  
-  static  long long getTimeDec();
+    long long getTimeDec();
  
   
   inline BString FloatToString(BFloat num)

@@ -1,4 +1,3 @@
-#pragma once
 #include "../common/BRSCommon.h"
 #include "../app/BRSRtmpServer.h"
 using namespace BRS;

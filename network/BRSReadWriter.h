@@ -32,7 +32,10 @@ public:
   virtual int 		get_send_kbps();
 
   virtual   int	 	readt(const void* buf, size_t size, ssize_t* nread);
+  virtual   int 	readn(const void *buf ,size_t count,ssize_t* nread);
   virtual   int 	writet(const void* buf, size_t size, ssize_t* nwrite);
+  virtual   int	 	writen(const void *buf ,size_t count, ssize_t* nwrite);
+  
 };
   
 }

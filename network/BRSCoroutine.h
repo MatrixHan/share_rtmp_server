@@ -14,9 +14,13 @@ class BRSWorker
 {
 public:
     struct BRSClientContext mContext;
-    BRSWorker();
     virtual void do_something()=0;
     virtual ~BRSWorker(){}
+protected:
+  friend class BRSServer;
+  BRSWorker(BRSServer * mserver);
+protected:
+  BRSServer *brsServer;
 };
 
 class BRSCoroutine
