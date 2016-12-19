@@ -1,4 +1,4 @@
-#include "BRSStream.h"
+#include <BRSStream.h>
 
 namespace BRS 
 {

@@ -1,9 +1,9 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "../network/BRSServer.h"
-#include "../core/BRSLog.h"
-#include "../core/BRSUtils.h"
+#include <BRSCommon.h>
+#include <BRSServer.h>
+#include <BRSLog.h>
+#include <BRSUtils.h>
 namespace BRS 
 {
   class BRSRtmpServer : public BRSServer

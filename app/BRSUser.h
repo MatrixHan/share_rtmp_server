@@ -1,5 +1,5 @@
 #pragma once
-#include "../common/BRSCommon.h"
+#include <BRSCommon.h>
 
 
 namespace BRS 

@@ -1,8 +1,8 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "../network/BRSStream.h"
-#include "../network/BRSReadWriter.h"
+#include <BRSCommon.h>
+#include <BRSStream.h>
+#include <BRSReadWriter.h>
 
 
 namespace BRS 

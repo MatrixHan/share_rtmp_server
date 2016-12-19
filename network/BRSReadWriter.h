@@ -1,7 +1,7 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "../core/BRSUtils.h"
+#include <BRSCommon.h>
+#include <BRSUtils.h>
 #include <errno.h>
 
 #define SOCKET_TIMEOUT 30

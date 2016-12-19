@@ -1,4 +1,6 @@
-#include "BRSHandShake.h"
+#include <BRSHandShake.h>
+
+#include <BRSErrorDef.h>
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
 #include <openssl/dh.h>

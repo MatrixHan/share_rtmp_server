@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../common/BRSCommon.h"
-#include "BRSSocket.h"
+#include <BRSCommon.h>
+#include <BRSSocket.h>
 
 namespace BRS 
 {

@@ -7,7 +7,8 @@ namespace BRS
 */
 #define BrsAutoFree(className, instance, is_array) \
 	__BrsAutoFree<className> _auto_free_##instance(&instance, is_array)
-    
+#define BrsAutoFreeA(className, instance) \
+__BrsAutoFree<className> _auto_free_array_##instance(&instance, true)
 template<class T>
 class __BrsAutoFree
 {

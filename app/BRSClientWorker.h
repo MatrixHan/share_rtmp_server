@@ -1,11 +1,11 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "../core/BRSLog.h"
-#include "BRSClientContext.h"
-#include "../network/BRSCoroutine.h"
-#include "../core/BRSHandShake.h"
-#include "../protocol/BRSProtocol.h"
+#include <BRSCommon.h>
+#include <BRSLog.h>
+#include <BRSClientContext.h>
+#include <BRSCoroutine.h>
+#include <BRSHandShake.h>
+#include <BRSProtocol.h>
 
 namespace BRS 
 {
@@ -19,7 +19,9 @@ namespace BRS
     BRSClientWorker(int pfd,BRSServer *mserver);
     virtual ~BRSClientWorker();
     virtual  void do_something();
+    
     virtual  int  rtmpHandshake();
+    virtual  int  connect_app();
     
   };
   

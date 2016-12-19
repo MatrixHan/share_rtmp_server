@@ -1,4 +1,4 @@
-#include "BRSServer.h"
+#include <BRSServer.h>
 
 
 namespace BRS 
@@ -84,6 +84,7 @@ int BRSServer::closeClient(int fd)
 	     if(bccmitor!=brsClientContextMaps->end())
 		clientWorker=bccmitor->second;
     if(clientWorker){
+    SafeDelete(clientWorker);
     server_epoll->delEpoll(fd);
     brsClientContextMaps->erase(bccmitor);
     }

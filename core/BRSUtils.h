@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../common/BRSCommon.h"
-#include "BRSLog.h"
+#include <BRSCommon.h>
+#include <BRSLog.h>
 #define BUFLEN 255   
 
 namespace BRS 
@@ -56,7 +56,7 @@ namespace BRS
   
   inline BBool EqualFloat(BFloat l,BFloat r)
   {
-      return abs(l-r)<=EPSILON_E6;
+      return Abs(l-r)<=EPSILON_E6;
   }
   
   inline BString getNameFromPath(const BString &path)

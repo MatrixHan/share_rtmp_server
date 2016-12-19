@@ -339,6 +339,60 @@ common/BRSMath.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/common/BRSMath.cpp.s
 .PHONY : common/BRSMath.cpp.s
 
+core/BRSAutoFree.o: core/BRSAutoFree.cpp.o
+
+.PHONY : core/BRSAutoFree.o
+
+# target to build an object file
+core/BRSAutoFree.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSAutoFree.cpp.o
+.PHONY : core/BRSAutoFree.cpp.o
+
+core/BRSAutoFree.i: core/BRSAutoFree.cpp.i
+
+.PHONY : core/BRSAutoFree.i
+
+# target to preprocess a source file
+core/BRSAutoFree.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSAutoFree.cpp.i
+.PHONY : core/BRSAutoFree.cpp.i
+
+core/BRSAutoFree.s: core/BRSAutoFree.cpp.s
+
+.PHONY : core/BRSAutoFree.s
+
+# target to generate assembly for a file
+core/BRSAutoFree.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSAutoFree.cpp.s
+.PHONY : core/BRSAutoFree.cpp.s
+
+core/BRSFastBuffer.o: core/BRSFastBuffer.cpp.o
+
+.PHONY : core/BRSFastBuffer.o
+
+# target to build an object file
+core/BRSFastBuffer.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSFastBuffer.cpp.o
+.PHONY : core/BRSFastBuffer.cpp.o
+
+core/BRSFastBuffer.i: core/BRSFastBuffer.cpp.i
+
+.PHONY : core/BRSFastBuffer.i
+
+# target to preprocess a source file
+core/BRSFastBuffer.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSFastBuffer.cpp.i
+.PHONY : core/BRSFastBuffer.cpp.i
+
+core/BRSFastBuffer.s: core/BRSFastBuffer.cpp.s
+
+.PHONY : core/BRSFastBuffer.s
+
+# target to generate assembly for a file
+core/BRSFastBuffer.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSFastBuffer.cpp.s
+.PHONY : core/BRSFastBuffer.cpp.s
+
 core/BRSHandShake.o: core/BRSHandShake.cpp.o
 
 .PHONY : core/BRSHandShake.o
@@ -420,6 +474,33 @@ core/BRSLog.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSLog.cpp.s
 .PHONY : core/BRSLog.cpp.s
 
+core/BRSRtmpStack.o: core/BRSRtmpStack.cpp.o
+
+.PHONY : core/BRSRtmpStack.o
+
+# target to build an object file
+core/BRSRtmpStack.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSRtmpStack.cpp.o
+.PHONY : core/BRSRtmpStack.cpp.o
+
+core/BRSRtmpStack.i: core/BRSRtmpStack.cpp.i
+
+.PHONY : core/BRSRtmpStack.i
+
+# target to preprocess a source file
+core/BRSRtmpStack.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSRtmpStack.cpp.i
+.PHONY : core/BRSRtmpStack.cpp.i
+
+core/BRSRtmpStack.s: core/BRSRtmpStack.cpp.s
+
+.PHONY : core/BRSRtmpStack.s
+
+# target to generate assembly for a file
+core/BRSRtmpStack.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSRtmpStack.cpp.s
+.PHONY : core/BRSRtmpStack.cpp.s
+
 core/BRSUtils.o: core/BRSUtils.cpp.o
 
 .PHONY : core/BRSUtils.o
@@ -446,6 +527,168 @@ core/BRSUtils.s: core/BRSUtils.cpp.s
 core/BRSUtils.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/core/BRSUtils.cpp.s
 .PHONY : core/BRSUtils.cpp.s
+
+kernel/BRSFile.o: kernel/BRSFile.cpp.o
+
+.PHONY : kernel/BRSFile.o
+
+# target to build an object file
+kernel/BRSFile.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSFile.cpp.o
+.PHONY : kernel/BRSFile.cpp.o
+
+kernel/BRSFile.i: kernel/BRSFile.cpp.i
+
+.PHONY : kernel/BRSFile.i
+
+# target to preprocess a source file
+kernel/BRSFile.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSFile.cpp.i
+.PHONY : kernel/BRSFile.cpp.i
+
+kernel/BRSFile.s: kernel/BRSFile.cpp.s
+
+.PHONY : kernel/BRSFile.s
+
+# target to generate assembly for a file
+kernel/BRSFile.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSFile.cpp.s
+.PHONY : kernel/BRSFile.cpp.s
+
+kernel/BRSFlv.o: kernel/BRSFlv.cpp.o
+
+.PHONY : kernel/BRSFlv.o
+
+# target to build an object file
+kernel/BRSFlv.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSFlv.cpp.o
+.PHONY : kernel/BRSFlv.cpp.o
+
+kernel/BRSFlv.i: kernel/BRSFlv.cpp.i
+
+.PHONY : kernel/BRSFlv.i
+
+# target to preprocess a source file
+kernel/BRSFlv.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSFlv.cpp.i
+.PHONY : kernel/BRSFlv.cpp.i
+
+kernel/BRSFlv.s: kernel/BRSFlv.cpp.s
+
+.PHONY : kernel/BRSFlv.s
+
+# target to generate assembly for a file
+kernel/BRSFlv.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSFlv.cpp.s
+.PHONY : kernel/BRSFlv.cpp.s
+
+kernel/BRSKernelCodec.o: kernel/BRSKernelCodec.cpp.o
+
+.PHONY : kernel/BRSKernelCodec.o
+
+# target to build an object file
+kernel/BRSKernelCodec.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelCodec.cpp.o
+.PHONY : kernel/BRSKernelCodec.cpp.o
+
+kernel/BRSKernelCodec.i: kernel/BRSKernelCodec.cpp.i
+
+.PHONY : kernel/BRSKernelCodec.i
+
+# target to preprocess a source file
+kernel/BRSKernelCodec.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelCodec.cpp.i
+.PHONY : kernel/BRSKernelCodec.cpp.i
+
+kernel/BRSKernelCodec.s: kernel/BRSKernelCodec.cpp.s
+
+.PHONY : kernel/BRSKernelCodec.s
+
+# target to generate assembly for a file
+kernel/BRSKernelCodec.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelCodec.cpp.s
+.PHONY : kernel/BRSKernelCodec.cpp.s
+
+kernel/BRSKernelError.o: kernel/BRSKernelError.cpp.o
+
+.PHONY : kernel/BRSKernelError.o
+
+# target to build an object file
+kernel/BRSKernelError.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelError.cpp.o
+.PHONY : kernel/BRSKernelError.cpp.o
+
+kernel/BRSKernelError.i: kernel/BRSKernelError.cpp.i
+
+.PHONY : kernel/BRSKernelError.i
+
+# target to preprocess a source file
+kernel/BRSKernelError.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelError.cpp.i
+.PHONY : kernel/BRSKernelError.cpp.i
+
+kernel/BRSKernelError.s: kernel/BRSKernelError.cpp.s
+
+.PHONY : kernel/BRSKernelError.s
+
+# target to generate assembly for a file
+kernel/BRSKernelError.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelError.cpp.s
+.PHONY : kernel/BRSKernelError.cpp.s
+
+kernel/BRSKernelUtility.o: kernel/BRSKernelUtility.cpp.o
+
+.PHONY : kernel/BRSKernelUtility.o
+
+# target to build an object file
+kernel/BRSKernelUtility.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelUtility.cpp.o
+.PHONY : kernel/BRSKernelUtility.cpp.o
+
+kernel/BRSKernelUtility.i: kernel/BRSKernelUtility.cpp.i
+
+.PHONY : kernel/BRSKernelUtility.i
+
+# target to preprocess a source file
+kernel/BRSKernelUtility.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelUtility.cpp.i
+.PHONY : kernel/BRSKernelUtility.cpp.i
+
+kernel/BRSKernelUtility.s: kernel/BRSKernelUtility.cpp.s
+
+.PHONY : kernel/BRSKernelUtility.s
+
+# target to generate assembly for a file
+kernel/BRSKernelUtility.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelUtility.cpp.s
+.PHONY : kernel/BRSKernelUtility.cpp.s
+
+kernel/BRSStream.o: kernel/BRSStream.cpp.o
+
+.PHONY : kernel/BRSStream.o
+
+# target to build an object file
+kernel/BRSStream.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSStream.cpp.o
+.PHONY : kernel/BRSStream.cpp.o
+
+kernel/BRSStream.i: kernel/BRSStream.cpp.i
+
+.PHONY : kernel/BRSStream.i
+
+# target to preprocess a source file
+kernel/BRSStream.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSStream.cpp.i
+.PHONY : kernel/BRSStream.cpp.i
+
+kernel/BRSStream.s: kernel/BRSStream.cpp.s
+
+.PHONY : kernel/BRSStream.s
+
+# target to generate assembly for a file
+kernel/BRSStream.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/kernel/BRSStream.cpp.s
+.PHONY : kernel/BRSStream.cpp.s
 
 network/BRSCoroutine.o: network/BRSCoroutine.cpp.o
 
@@ -500,6 +743,33 @@ network/BRSEpoll.s: network/BRSEpoll.cpp.s
 network/BRSEpoll.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.s
 .PHONY : network/BRSEpoll.cpp.s
+
+network/BRSPublicEntity.o: network/BRSPublicEntity.cpp.o
+
+.PHONY : network/BRSPublicEntity.o
+
+# target to build an object file
+network/BRSPublicEntity.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSPublicEntity.cpp.o
+.PHONY : network/BRSPublicEntity.cpp.o
+
+network/BRSPublicEntity.i: network/BRSPublicEntity.cpp.i
+
+.PHONY : network/BRSPublicEntity.i
+
+# target to preprocess a source file
+network/BRSPublicEntity.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSPublicEntity.cpp.i
+.PHONY : network/BRSPublicEntity.cpp.i
+
+network/BRSPublicEntity.s: network/BRSPublicEntity.cpp.s
+
+.PHONY : network/BRSPublicEntity.s
+
+# target to generate assembly for a file
+network/BRSPublicEntity.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSPublicEntity.cpp.s
+.PHONY : network/BRSPublicEntity.cpp.s
 
 network/BRSReadWriter.o: network/BRSReadWriter.cpp.o
 
@@ -582,33 +852,6 @@ network/BRSSocket.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.s
 .PHONY : network/BRSSocket.cpp.s
 
-network/BRSStream.o: network/BRSStream.cpp.o
-
-.PHONY : network/BRSStream.o
-
-# target to build an object file
-network/BRSStream.cpp.o:
-	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.o
-.PHONY : network/BRSStream.cpp.o
-
-network/BRSStream.i: network/BRSStream.cpp.i
-
-.PHONY : network/BRSStream.i
-
-# target to preprocess a source file
-network/BRSStream.cpp.i:
-	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.i
-.PHONY : network/BRSStream.cpp.i
-
-network/BRSStream.s: network/BRSStream.cpp.s
-
-.PHONY : network/BRSStream.s
-
-# target to generate assembly for a file
-network/BRSStream.cpp.s:
-	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/network/BRSStream.cpp.s
-.PHONY : network/BRSStream.cpp.s
-
 protocol/BRSProtocol.o: protocol/BRSProtocol.cpp.o
 
 .PHONY : protocol/BRSProtocol.o
@@ -635,6 +878,60 @@ protocol/BRSProtocol.s: protocol/BRSProtocol.cpp.s
 protocol/BRSProtocol.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.s
 .PHONY : protocol/BRSProtocol.cpp.s
+
+protocol/BRSRtmpAmf0.o: protocol/BRSRtmpAmf0.cpp.o
+
+.PHONY : protocol/BRSRtmpAmf0.o
+
+# target to build an object file
+protocol/BRSRtmpAmf0.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o
+.PHONY : protocol/BRSRtmpAmf0.cpp.o
+
+protocol/BRSRtmpAmf0.i: protocol/BRSRtmpAmf0.cpp.i
+
+.PHONY : protocol/BRSRtmpAmf0.i
+
+# target to preprocess a source file
+protocol/BRSRtmpAmf0.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.i
+.PHONY : protocol/BRSRtmpAmf0.cpp.i
+
+protocol/BRSRtmpAmf0.s: protocol/BRSRtmpAmf0.cpp.s
+
+.PHONY : protocol/BRSRtmpAmf0.s
+
+# target to generate assembly for a file
+protocol/BRSRtmpAmf0.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.s
+.PHONY : protocol/BRSRtmpAmf0.cpp.s
+
+protocol/BRSRtmpUtility.o: protocol/BRSRtmpUtility.cpp.o
+
+.PHONY : protocol/BRSRtmpUtility.o
+
+# target to build an object file
+protocol/BRSRtmpUtility.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o
+.PHONY : protocol/BRSRtmpUtility.cpp.o
+
+protocol/BRSRtmpUtility.i: protocol/BRSRtmpUtility.cpp.i
+
+.PHONY : protocol/BRSRtmpUtility.i
+
+# target to preprocess a source file
+protocol/BRSRtmpUtility.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.i
+.PHONY : protocol/BRSRtmpUtility.cpp.i
+
+protocol/BRSRtmpUtility.s: protocol/BRSRtmpUtility.cpp.s
+
+.PHONY : protocol/BRSRtmpUtility.s
+
+# target to generate assembly for a file
+protocol/BRSRtmpUtility.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.s
+.PHONY : protocol/BRSRtmpUtility.cpp.s
 
 # Help Target
 help:
@@ -669,6 +966,12 @@ help:
 	@echo "... common/BRSMath.o"
 	@echo "... common/BRSMath.i"
 	@echo "... common/BRSMath.s"
+	@echo "... core/BRSAutoFree.o"
+	@echo "... core/BRSAutoFree.i"
+	@echo "... core/BRSAutoFree.s"
+	@echo "... core/BRSFastBuffer.o"
+	@echo "... core/BRSFastBuffer.i"
+	@echo "... core/BRSFastBuffer.s"
 	@echo "... core/BRSHandShake.o"
 	@echo "... core/BRSHandShake.i"
 	@echo "... core/BRSHandShake.s"
@@ -678,15 +981,39 @@ help:
 	@echo "... core/BRSLog.o"
 	@echo "... core/BRSLog.i"
 	@echo "... core/BRSLog.s"
+	@echo "... core/BRSRtmpStack.o"
+	@echo "... core/BRSRtmpStack.i"
+	@echo "... core/BRSRtmpStack.s"
 	@echo "... core/BRSUtils.o"
 	@echo "... core/BRSUtils.i"
 	@echo "... core/BRSUtils.s"
+	@echo "... kernel/BRSFile.o"
+	@echo "... kernel/BRSFile.i"
+	@echo "... kernel/BRSFile.s"
+	@echo "... kernel/BRSFlv.o"
+	@echo "... kernel/BRSFlv.i"
+	@echo "... kernel/BRSFlv.s"
+	@echo "... kernel/BRSKernelCodec.o"
+	@echo "... kernel/BRSKernelCodec.i"
+	@echo "... kernel/BRSKernelCodec.s"
+	@echo "... kernel/BRSKernelError.o"
+	@echo "... kernel/BRSKernelError.i"
+	@echo "... kernel/BRSKernelError.s"
+	@echo "... kernel/BRSKernelUtility.o"
+	@echo "... kernel/BRSKernelUtility.i"
+	@echo "... kernel/BRSKernelUtility.s"
+	@echo "... kernel/BRSStream.o"
+	@echo "... kernel/BRSStream.i"
+	@echo "... kernel/BRSStream.s"
 	@echo "... network/BRSCoroutine.o"
 	@echo "... network/BRSCoroutine.i"
 	@echo "... network/BRSCoroutine.s"
 	@echo "... network/BRSEpoll.o"
 	@echo "... network/BRSEpoll.i"
 	@echo "... network/BRSEpoll.s"
+	@echo "... network/BRSPublicEntity.o"
+	@echo "... network/BRSPublicEntity.i"
+	@echo "... network/BRSPublicEntity.s"
 	@echo "... network/BRSReadWriter.o"
 	@echo "... network/BRSReadWriter.i"
 	@echo "... network/BRSReadWriter.s"
@@ -696,12 +1023,15 @@ help:
 	@echo "... network/BRSSocket.o"
 	@echo "... network/BRSSocket.i"
 	@echo "... network/BRSSocket.s"
-	@echo "... network/BRSStream.o"
-	@echo "... network/BRSStream.i"
-	@echo "... network/BRSStream.s"
 	@echo "... protocol/BRSProtocol.o"
 	@echo "... protocol/BRSProtocol.i"
 	@echo "... protocol/BRSProtocol.s"
+	@echo "... protocol/BRSRtmpAmf0.o"
+	@echo "... protocol/BRSRtmpAmf0.i"
+	@echo "... protocol/BRSRtmpAmf0.s"
+	@echo "... protocol/BRSRtmpUtility.o"
+	@echo "... protocol/BRSRtmpUtility.i"
+	@echo "... protocol/BRSRtmpUtility.s"
 .PHONY : help
 
 

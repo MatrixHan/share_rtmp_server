@@ -1,8 +1,8 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "../network/BRSReadWriter.h"
-#include "BRSAutoFree.h"
+#include <BRSCommon.h>
+#include <BRSReadWriter.h>
+#include <BRSAutoFree.h>
 
 #define BRS_S0   0x03;
 #define BRS_S0_ssl   0x06;

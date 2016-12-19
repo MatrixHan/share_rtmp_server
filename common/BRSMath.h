@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BRSCommon.h"
+#include <BRSCommon.h>
 
 namespace BRS 
 {

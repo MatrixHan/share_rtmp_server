@@ -1,4 +1,4 @@
-#include "BRSProtocol.h"
+#include <BRSProtocol.h>
 
 namespace BRS 
 {

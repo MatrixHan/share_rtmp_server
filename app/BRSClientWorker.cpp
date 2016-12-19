@@ -1,5 +1,6 @@
-#include "BRSClientWorker.h"
-#include "../network/BRSServer.h"
+#include <BRSClientWorker.h>
+#include <BRSServer.h>
+#include <BRSErrorDef.h>
 
 namespace BRS 
 {
@@ -31,13 +32,8 @@ void BRSClientWorker::do_something()
        return;
     }
 
-      char buf[1024];
-      while((ret = read(this->mContext.client_socketfd,buf,1024))>0)
-      {
-        brs_verbose("do_something",this->mContext.coroutine_fd); 
-        coroutine_yield(this->mContext.menv);
-     }
-     
+    
+     coroutine_yield(this->mContext.menv);
      close(this->mContext.client_socketfd);
      this->brsServer->closeClient(this->mContext.client_socketfd);
 }
@@ -98,6 +94,11 @@ int BRSClientWorker::rtmpHandshake()
     brs_trace("simple handshake success.");
     
 	return ret;
+}
+
+int BRSClientWorker::connect_app()
+{
+
 }
 
   

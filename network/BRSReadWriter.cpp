@@ -1,4 +1,5 @@
-#include "BRSReadWriter.h"
+#include <BRSReadWriter.h>
+#include <BRSErrorDef.h>
 
 namespace BRS {
 
@@ -122,7 +123,9 @@ int BRSReadWriter::readn(const void* buf ,size_t count, ssize_t* nread)
 	      if (errno == EINTR||errno == EAGAIN)
 	      {
 		  continue;
-	      }
+	      }else if (errno == ETIME) {
+			return ERROR_SOCKET_TIMEOUT;
+		}
 	      else
 	      {
 		  return -1;
@@ -151,7 +154,9 @@ int BRSReadWriter::writen(const void* buf ,size_t count,ssize_t* nwrite)
 	      if (errno == EINTR||errno == EAGAIN)
 	      {
 		  continue;
-	      }
+	      }else if (errno == ETIME) {
+			return ERROR_SOCKET_TIMEOUT;
+		}
 	      else
 	      {
 		  return -1;

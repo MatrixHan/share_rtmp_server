@@ -1,12 +1,12 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "BRSEpoll.h"
-#include "BRSSocket.h"
-#include "BRSStream.h"
-#include "../app/BRSClientWorker.h"
-#include "BRSPublicEntity.h"
-#include "BRSCoroutine.h"
+#include <BRSCommon.h>
+#include <BRSEpoll.h>
+#include <BRSSocket.h>
+#include <BRSStream.h>
+#include <BRSClientWorker.h>
+#include <BRSPublicEntity.h>
+#include <BRSCoroutine.h>
 namespace BRS 
 {
   

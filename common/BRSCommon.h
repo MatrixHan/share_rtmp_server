@@ -11,7 +11,9 @@
 #include <fcntl.h>
 #include <time.h>
 #include <sys/types.h>
-
+#ifndef _WIN32
+#include <inttypes.h>
+#endif
 
 #include <signal.h>
 
@@ -28,7 +30,6 @@
 #include <fstream>
 #include <stdarg.h>
 #include "BRSHeader.h"
-#include "BRSErrorDef.h"
 
 namespace BRS
 {

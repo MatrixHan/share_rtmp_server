@@ -1,7 +1,7 @@
 #pragma once
-#include "../common/BRSCommon.h"
+#include <BRSCommon.h>
 extern "C"{
-#include "../objs/coroutine/include/coroutine.h"
+#include <coroutine.h>
 }
 namespace BRS 
 {

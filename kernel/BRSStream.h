@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../common/BRSCommon.h"
+#include <BRSCommon.h>
 #include <assert.h>
 
 namespace BRS 
@@ -16,8 +16,10 @@ class BRSStream
 {
 private:
     // current position at bytes.
+    // 当前指针读写位置
     char* p;
     // the bytes data for stream to read or write.
+    // 指针开始位置
     char* bytes;
     // the total number of bytes.
     int nb_bytes;

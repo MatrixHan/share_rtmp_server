@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../common/BRSCommon.h"
+#include <BRSCommon.h>
 
 
 #include <arpa/inet.h>

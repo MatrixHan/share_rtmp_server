@@ -1,7 +1,7 @@
 #pragma once 
 
-#include "../common/BRSCommon.h"
-#include "../app/BRSClientContext.h"
+#include <BRSCommon.h>
+#include <BRSClientContext.h>
 extern "C"{
 #include <coroutine.h>
 }
