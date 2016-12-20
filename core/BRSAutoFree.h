@@ -5,10 +5,13 @@ namespace BRS
 /**
 * auto free the instance in the current scope.
 */
-#define BrsAutoFree(className, instance, is_array) \
+#define BrsAutoFree(className, instance ,is_array) \
 	__BrsAutoFree<className> _auto_free_##instance(&instance, is_array)
+	
+#define BrsAutoFreeE(className, instance ) \
+	__BrsAutoFree<className> _auto_free_##instance(&instance, false)
 #define BrsAutoFreeA(className, instance) \
-__BrsAutoFree<className> _auto_free_array_##instance(&instance, true)
+	__BrsAutoFree<className> _auto_free_array_##instance(&instance, true)
 template<class T>
 class __BrsAutoFree
 {

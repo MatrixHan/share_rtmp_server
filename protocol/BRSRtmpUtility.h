@@ -14,7 +14,7 @@ namespace BRS {
 
 class BrsMessageHeader;
 class BrsSharedPtrMessage;
-
+class BRSReadWriter;
 /**
 * parse the tcUrl, output the schema, host, vhost, app and port.
 * @param tcUrl, the input tcUrl, for example, 
@@ -80,6 +80,6 @@ extern int brs_rtmp_create_msg(char type, u_int32_t timestamp, char* data, int s
 extern std::string brs_generate_stream_url(std::string vhost, std::string app, std::string stream);
 
 // write large numbers of iovs.
-//extern int brs_write_large_iovs(ISrsProtocolReaderWriter* skt, iovec* iovs, int size, ssize_t* pnwrite = NULL);
+extern int brs_write_large_iovs(BRSReadWriter* skt, iovec* iovs, int size, ssize_t* pnwrite = NULL);
 
 }

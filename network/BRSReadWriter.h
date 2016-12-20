@@ -28,6 +28,7 @@ public:
   virtual void 		set_send_timeout(int64_t timeout_us);
   virtual int64_t 	get_recv_bytes();
   virtual int64_t 	get_send_bytes();
+  virtual int64_t 	get_send_timeout();
   virtual int 		get_recv_kbps();
   virtual int 		get_send_kbps();
 

@@ -93,7 +93,7 @@ public:
      * the cid(chunk id) specifies the chunk to send data over.
      * generally, each message perfer some cid, for example,
      * all protocol control messages perfer RTMP_CID_ProtocolControl,
-     * SrsSetWindowAckSizePacket is protocol control message.
+     * BrsSetWindowAckSizePacket is protocol control message.
      */
     virtual int get_prefer_cid();
     /**
@@ -242,6 +242,7 @@ enum BrsRtmpConnType
 };
 std::string srs_client_type_string(BrsRtmpConnType type);
 bool srs_client_type_is_publish(BrsRtmpConnType type);
+
 
 
 

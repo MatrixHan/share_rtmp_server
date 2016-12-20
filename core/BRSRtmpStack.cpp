@@ -12,6 +12,8 @@ using namespace std;
 namespace BRS 
 {
   
+  
+  
 BrsPacket::BrsPacket()
 {
 }
@@ -184,5 +186,15 @@ void BrsRequest::strip()
     app = brs_string_trim_start(app, "/");
     stream = brs_string_trim_start(stream, "/");
 }
-  
+ 
+
+BrsResponse::BrsResponse()
+{
+    stream_id = 1;
+}
+
+BrsResponse::~BrsResponse()
+{
+}
+ 
 }

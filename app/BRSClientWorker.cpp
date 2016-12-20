@@ -1,6 +1,6 @@
 #include <BRSClientWorker.h>
 #include <BRSServer.h>
-#include <BRSErrorDef.h>
+
 
 namespace BRS 
 {
@@ -8,15 +8,25 @@ namespace BRS
 
 BRSClientWorker::BRSClientWorker(int pfd,BRSServer *mserver):BRSWorker(mserver)
 {
-      protocol = new BRSProtocol(pfd);
+      
       complexHandshake = new BRSComplexHandShake();
+      skt = new BRSReadWriter(pfd);
+      req = new BrsRequest();
+      res = new BrsResponse();
+      rtmp = new BrsRtmpServer(skt);
+      
+      
 }
 
 
   
 BRSClientWorker::~BRSClientWorker()
 {
-
+    SafeDelete(complexHandshake);
+    SafeDelete(req);
+    SafeDelete(res);
+    SafeDelete(rtmp);
+    SafeDelete(skt);
 }
 
 
@@ -26,12 +36,17 @@ void BRSClientWorker::do_something()
       
      int ret = ERROR_SUCCESS;
      ret=this->rtmpHandshake();
-     if(ret<0){
+     if(ret!=ERROR_SUCCESS){
+       brs_error("rtmp handshake failed. ret=%d", ret);
        close(this->mContext.client_socketfd);
        this->brsServer->closeClient(this->mContext.client_socketfd);
        return;
     }
-
+    if((ret = rtmp->connect_app(req))!=ERROR_SUCCESS)
+    {
+	brs_error("rtmp connect vhost/app failed. ret=%d", ret);
+        return ;
+    }
     
      coroutine_yield(this->mContext.menv);
      close(this->mContext.client_socketfd);
@@ -98,7 +113,11 @@ int BRSClientWorker::rtmpHandshake()
 
 int BRSClientWorker::connect_app()
 {
-
+    int ret  = ERROR_SUCCESS;
+    
+    
+    
+    return ret;
 }
 
   

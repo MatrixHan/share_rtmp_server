@@ -65,6 +65,11 @@ int BRSReadWriter::get_send_kbps()
 	return send_bytes * 8 / diff_ms;
 }
 
+int64_t BRSReadWriter::get_send_timeout()
+{
+    return send_timeout;
+}
+
 int BRSReadWriter::readt(const void* buf, size_t size, ssize_t* nread)
 {
     int ret = 0;

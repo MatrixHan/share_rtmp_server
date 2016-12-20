@@ -7,12 +7,16 @@ CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o
  ../app/BRSClientContext.h
  ../app/BRSClientWorker.h
  ../common/BRSCommon.h
- ../common/BRSErrorDef.h
  ../common/BRSHeader.h
  ../core/BRSAutoFree.h
  ../core/BRSHandShake.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
+ ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
+ ../kernel/BRSConsts.h
+ ../kernel/BRSFlv.h
+ ../kernel/BRSKernelError.h
  ../kernel/BRSStream.h
  ../network/BRSCoroutine.h
  ../network/BRSEpoll.h
@@ -32,7 +36,12 @@ CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o
  ../core/BRSAutoFree.h
  ../core/BRSHandShake.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
+ ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
+ ../kernel/BRSConsts.h
+ ../kernel/BRSFlv.h
+ ../kernel/BRSKernelError.h
  ../kernel/BRSStream.h
  ../network/BRSCoroutine.h
  ../network/BRSEpoll.h
@@ -52,7 +61,12 @@ CMakeFiles/share_rtmp_server.dir/brs/share_rtmp_server.cpp.o
  ../core/BRSAutoFree.h
  ../core/BRSHandShake.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
+ ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
+ ../kernel/BRSConsts.h
+ ../kernel/BRSFlv.h
+ ../kernel/BRSKernelError.h
  ../kernel/BRSStream.h
  ../network/BRSCoroutine.h
  ../network/BRSEpoll.h
@@ -131,6 +145,7 @@ CMakeFiles/share_rtmp_server.dir/core/BRSRtmpStack.cpp.o
  ../common/BRSHeader.h
  ../core/BRSAutoFree.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
  ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
  ../kernel/BRSConsts.h
@@ -186,6 +201,7 @@ CMakeFiles/share_rtmp_server.dir/kernel/BRSKernelUtility.cpp.o
  ../common/BRSCommon.h
  ../common/BRSHeader.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
  ../core/BRSUtils.h
  ../kernel/BRSConsts.h
  ../kernel/BRSFlv.h
@@ -237,7 +253,12 @@ CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o
  ../core/BRSAutoFree.h
  ../core/BRSHandShake.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
+ ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
+ ../kernel/BRSConsts.h
+ ../kernel/BRSFlv.h
+ ../kernel/BRSKernelError.h
  ../kernel/BRSStream.h
  ../network/BRSCoroutine.h
  ../network/BRSEpoll.h
@@ -256,11 +277,22 @@ CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o
  ../common/BRSCommon.h
  ../common/BRSHeader.h
+ ../core/BRSAutoFree.h
+ ../core/BRSFastBuffer.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
+ ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
+ ../kernel/BRSConsts.h
+ ../kernel/BRSFlv.h
+ ../kernel/BRSKernelError.h
+ ../kernel/BRSKernelUtility.h
  ../kernel/BRSStream.h
  ../network/BRSReadWriter.h
  ../protocol/BRSProtocol.h
+ ../protocol/BRSRtmpAmf0.h
+ ../protocol/BRSRtmpPackets.h
+ ../protocol/BRSRtmpUtility.h
  /home/brave/projects/share_rtmp_server/protocol/BRSProtocol.cpp
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o
  ../common/BRSCommon.h
@@ -271,11 +303,28 @@ CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o
  ../kernel/BRSStream.h
  ../protocol/BRSRtmpAmf0.h
  /home/brave/projects/share_rtmp_server/protocol/BRSRtmpAmf0.cpp
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o
+ ../common/BRSCommon.h
+ ../common/BRSHeader.h
+ ../core/BRSAutoFree.h
+ ../core/BRSLog.h
+ ../core/BRSPerformance.h
+ ../core/BRSRtmpStack.h
+ ../core/BRSUtils.h
+ ../kernel/BRSConsts.h
+ ../kernel/BRSFlv.h
+ ../kernel/BRSKernelError.h
+ ../kernel/BRSStream.h
+ ../protocol/BRSRtmpAmf0.h
+ ../protocol/BRSRtmpPackets.h
+ ../protocol/BRSRtmpUtility.h
+ /home/brave/projects/share_rtmp_server/protocol/BRSRtmpPackets.cpp
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o
  ../common/BRSCommon.h
  ../common/BRSHeader.h
  ../core/BRSAutoFree.h
  ../core/BRSLog.h
+ ../core/BRSPerformance.h
  ../core/BRSRtmpStack.h
  ../core/BRSUtils.h
  ../kernel/BRSConsts.h
@@ -284,5 +333,6 @@ CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o
  ../kernel/BRSKernelError.h
  ../kernel/BRSKernelUtility.h
  ../kernel/BRSStream.h
+ ../network/BRSReadWriter.h
  ../protocol/BRSRtmpUtility.h
  /home/brave/projects/share_rtmp_server/protocol/BRSRtmpUtility.cpp

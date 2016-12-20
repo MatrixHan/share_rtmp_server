@@ -6,6 +6,7 @@
 #include <BRSCoroutine.h>
 #include <BRSHandShake.h>
 #include <BRSProtocol.h>
+#include <BRSRtmpStack.h>
 
 namespace BRS 
 {
@@ -13,8 +14,11 @@ namespace BRS
   class BRSClientWorker:virtual public BRSWorker 
   {
   private:
-   BRSProtocol  *protocol;
    BRSComplexHandShake * complexHandshake;
+   BrsRequest			*req;
+   BrsResponse			*res;
+   BRSReadWriter                *skt;
+   BrsRtmpServer                *rtmp;
   public:
     BRSClientWorker(int pfd,BRSServer *mserver);
     virtual ~BRSClientWorker();

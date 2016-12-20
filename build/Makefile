@@ -906,6 +906,33 @@ protocol/BRSRtmpAmf0.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.s
 .PHONY : protocol/BRSRtmpAmf0.cpp.s
 
+protocol/BRSRtmpPackets.o: protocol/BRSRtmpPackets.cpp.o
+
+.PHONY : protocol/BRSRtmpPackets.o
+
+# target to build an object file
+protocol/BRSRtmpPackets.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o
+.PHONY : protocol/BRSRtmpPackets.cpp.o
+
+protocol/BRSRtmpPackets.i: protocol/BRSRtmpPackets.cpp.i
+
+.PHONY : protocol/BRSRtmpPackets.i
+
+# target to preprocess a source file
+protocol/BRSRtmpPackets.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.i
+.PHONY : protocol/BRSRtmpPackets.cpp.i
+
+protocol/BRSRtmpPackets.s: protocol/BRSRtmpPackets.cpp.s
+
+.PHONY : protocol/BRSRtmpPackets.s
+
+# target to generate assembly for a file
+protocol/BRSRtmpPackets.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.s
+.PHONY : protocol/BRSRtmpPackets.cpp.s
+
 protocol/BRSRtmpUtility.o: protocol/BRSRtmpUtility.cpp.o
 
 .PHONY : protocol/BRSRtmpUtility.o
@@ -1029,6 +1056,9 @@ help:
 	@echo "... protocol/BRSRtmpAmf0.o"
 	@echo "... protocol/BRSRtmpAmf0.i"
 	@echo "... protocol/BRSRtmpAmf0.s"
+	@echo "... protocol/BRSRtmpPackets.o"
+	@echo "... protocol/BRSRtmpPackets.i"
+	@echo "... protocol/BRSRtmpPackets.s"
 	@echo "... protocol/BRSRtmpUtility.o"
 	@echo "... protocol/BRSRtmpUtility.i"
 	@echo "... protocol/BRSRtmpUtility.s"

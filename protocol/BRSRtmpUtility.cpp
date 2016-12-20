@@ -15,6 +15,7 @@ using namespace std;
 #include <BRSKernelCodec.h>
 #include <BRSConsts.h>
 #include <BRSKernelError.h>
+#include <BRSReadWriter.h>
 
 namespace BRS {
 
@@ -123,27 +124,27 @@ string brs_generate_tc_url(string ip, string vhost, string app, string port, str
 /**
 * compare the memory in bytes.
 */
-bool brs_bytes_equals(void* pa, void* pb, int size)
-{
-    u_int8_t* a = (u_int8_t*)pa;
-    u_int8_t* b = (u_int8_t*)pb;
-    
-    if (!a && !b) {
-        return true;
-    }
-    
-    if (!a || !b) {
-        return false;
-    }
-    
-    for(int i = 0; i < size; i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-
-    return true;
-}
+// bool brs_bytes_equals(void* pa, void* pb, int size)
+// {
+//     u_int8_t* a = (u_int8_t*)pa;
+//     u_int8_t* b = (u_int8_t*)pb;
+//     
+//     if (!a && !b) {
+//         return true;
+//     }
+//     
+//     if (!a || !b) {
+//         return false;
+//     }
+//     
+//     for(int i = 0; i < size; i++){
+//         if(a[i] != b[i]){
+//             return false;
+//         }
+//     }
+// 
+//     return true;
+// }
 
 int brs_do_rtmp_create_msg(char type, u_int32_t timestamp, char* data, int size, int stream_id, BrsSharedPtrMessage** ppmsg)
 {
@@ -217,8 +218,8 @@ std::string brs_generate_stream_url(std::string vhost, std::string app, std::str
 
     return url;
 }
-/*
-int brs_write_large_iovs(IBrsProtocolReaderWriter* skt, iovec* iovs, int size, ssize_t* pnwrite)
+
+int brs_write_large_iovs(BRSReadWriter* skt, iovec* iovs, int size, ssize_t* pnwrite)
 {
     int ret = ERROR_SUCCESS;
     
@@ -233,7 +234,7 @@ int brs_write_large_iovs(IBrsProtocolReaderWriter* skt, iovec* iovs, int size, s
     
     // send in a time.
     if (size < limits) {
-        if ((ret = skt->writev(iovs, size, pnwrite)) != ERROR_SUCCESS) {
+        if ((ret = skt->writen(iovs, size, pnwrite)) != ERROR_SUCCESS) {
             if (!brs_is_client_gracefully_close(ret)) {
                 brs_error("send with writev failed. ret=%d", ret);
             }
@@ -246,7 +247,7 @@ int brs_write_large_iovs(IBrsProtocolReaderWriter* skt, iovec* iovs, int size, s
     int cur_iov = 0;
     while (cur_iov < size) {
         int cur_count = brs_min(limits, size - cur_iov);
-        if ((ret = skt->writev(iovs + cur_iov, cur_count, pnwrite)) != ERROR_SUCCESS) {
+        if ((ret = skt->writen(iovs + cur_iov, cur_count, pnwrite)) != ERROR_SUCCESS) {
             if (!brs_is_client_gracefully_close(ret)) {
                 brs_error("send with writev failed. ret=%d", ret);
             }
@@ -256,6 +257,6 @@ int brs_write_large_iovs(IBrsProtocolReaderWriter* skt, iovec* iovs, int size, s
     }
     
     return ret;
-}*/
+}
 
 }

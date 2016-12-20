@@ -25,6 +25,8 @@ BRSHandShake.h
 -
 BRSProtocol.h
 -
+BRSRtmpStack.h
+-
 
 ../app/BRSRtmpServer.h
 BRSCommon.h
@@ -116,6 +118,10 @@ BRSCommon.h
 BRSUtils.h
 -
 
+../core/BRSPerformance.h
+BRSCommon.h
+-
+
 ../core/BRSRtmpStack.h
 BRSLog.h
 -
@@ -135,6 +141,8 @@ BRSLog.h
 -
 
 ../kernel/BRSConsts.h
+BRSPerformance.h
+-
 
 ../kernel/BRSFile.h
 string
@@ -395,6 +403,14 @@ BRSStream.h
 -
 BRSReadWriter.h
 -
+BRSConsts.h
+-
+BRSKernelError.h
+-
+BRSLog.h
+-
+BRSRtmpStack.h
+-
 
 ../protocol/BRSRtmpAmf0.h
 BRSCommon.h
@@ -402,6 +418,14 @@ BRSCommon.h
 string
 -
 vector
+-
+
+../protocol/BRSRtmpPackets.h
+BRSCommon.h
+-
+BRSRtmpStack.h
+-
+BRSRtmpAmf0.h
 -
 
 ../protocol/BRSRtmpUtility.h
@@ -420,8 +444,6 @@ BRSConsts.h
 BRSClientWorker.h
 -
 BRSServer.h
--
-BRSErrorDef.h
 -
 
 /home/brave/projects/share_rtmp_server/app/BRSRtmpServer.cpp
@@ -691,6 +713,20 @@ BRSSocket.h
 /home/brave/projects/share_rtmp_server/protocol/BRSProtocol.cpp
 BRSProtocol.h
 -
+BRSFastBuffer.h
+-
+BRSPerformance.h
+-
+BRSRtmpUtility.h
+-
+BRSKernelUtility.h
+-
+BRSRtmpAmf0.h
+-
+BRSRtmpPackets.h
+-
+BRSAutoFree.h
+-
 
 /home/brave/projects/share_rtmp_server/protocol/BRSRtmpAmf0.cpp
 BRSRtmpAmf0.h
@@ -706,6 +742,18 @@ BRSLog.h
 BRSKernelError.h
 -
 BRSStream.h
+-
+
+/home/brave/projects/share_rtmp_server/protocol/BRSRtmpPackets.cpp
+BRSRtmpPackets.h
+-
+BRSKernelError.h
+-
+BRSRtmpUtility.h
+-
+BRSLog.h
+-
+BRSFlv.h
 -
 
 /home/brave/projects/share_rtmp_server/protocol/BRSRtmpUtility.cpp
@@ -728,5 +776,7 @@ BRSKernelCodec.h
 BRSConsts.h
 -
 BRSKernelError.h
+-
+BRSReadWriter.h
 -
 

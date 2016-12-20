@@ -72,7 +72,44 @@ namespace BRS
 		exit(EXIT_FAILURE); \
 	} while(0)
 
-  
+/**
+* disable copy constructor of class,
+* to avoid the memory leak or corrupt by copy instance.
+*/
+#define disable_default_copy(className)\
+    private:\
+        /** \
+        * disable the copy constructor and operator=, donot allow directly copy. \
+        */ \
+        className(const className&); \
+        className& operator= (const className&)
 
+        
+// stable major version
+#define VERSION_STABLE 1
+#define VERSION_STABLE_BRANCH BRS_XSTR(VERSION_STABLE)".0release"        
+
+#define BRS_XSTR(v) BRS_INTERNAL_STR(v)
+#define BRS_INTERNAL_STR(v) #v
+        
+// server info.
+#define RTMP_SIG_BRS_KEY "BRS"
+#define RTMP_SIG_BRS_CODE "Brave Han"
+#define RTMP_SIG_BRS_ROLE "origin/edge server"
+#define RTMP_SIG_BRS_NAME RTMP_SIG_BRS_KEY"(Brave RTMP Server)"
+#define RTMP_SIG_BRS_URL_SHORT "http://fxother.com/"
+#define RTMP_SIG_BRS_URL "https://"RTMP_SIG_BRS_URL_SHORT
+#define RTMP_SIG_BRS_WEB "http://fxother.com/"
+#define RTMP_SIG_BRS_EMAIL "7248329hy@163.com"
+#define RTMP_SIG_BRS_LICENSE "The MIT License (MIT)"
+#define RTMP_SIG_BRS_COPYRIGHT "Copyright (c) 2016-2018"
+#define RTMP_SIG_BRS_PRIMARY "BRS/"VERSION_STABLE_BRANCH
+#define RTMP_SIG_BRS_AUTHROS "brave han"
+#define RTMP_SIG_BRS_CONTRIBUTORS_URL RTMP_SIG_BRS_URL"/blob/master/AUTHORS.txt"
+#define RTMP_SIG_BRS_HANDSHAKE RTMP_SIG_BRS_KEY"("RTMP_SIG_BRS_VERSION")"
+#define RTMP_SIG_BRS_RELEASE RTMP_SIG_BRS_URL"/master"
+#define RTMP_SIG_BRS_ISSUES(id) RTMP_SIG_BRS_URL"/issues/"#id
+#define RTMP_SIG_BRS_VERSION BRS_XSTR(VERSION_MAJOR)"."BRS_XSTR(VERSION_MINOR)"."BRS_XSTR(VERSION_REVISION)
+#define RTMP_SIG_BRS_SERVER RTMP_SIG_BRS_KEY"/"RTMP_SIG_BRS_VERSION"("RTMP_SIG_BRS_CODE")"
   
 }
