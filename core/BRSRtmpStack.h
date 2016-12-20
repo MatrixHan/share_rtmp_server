@@ -240,8 +240,8 @@ enum BrsRtmpConnType
     BrsRtmpConnFMLEPublish,
     BrsRtmpConnFlashPublish,
 };
-std::string srs_client_type_string(BrsRtmpConnType type);
-bool srs_client_type_is_publish(BrsRtmpConnType type);
+std::string brs_client_type_string(BrsRtmpConnType type);
+bool brs_client_type_is_publish(BrsRtmpConnType type);
 
 
 

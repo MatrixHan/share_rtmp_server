@@ -196,5 +196,20 @@ BrsResponse::BrsResponse()
 BrsResponse::~BrsResponse()
 {
 }
+
+string brs_client_type_string(BrsRtmpConnType type)
+{
+    switch (type) {
+        case BrsRtmpConnPlay: return "Play";
+        case BrsRtmpConnFlashPublish: return "flash-publish)";
+        case BrsRtmpConnFMLEPublish: return "fmle-publish";
+        default: return "Unknown";
+    }
+}
+
+bool brs_client_type_is_publish(BrsRtmpConnType type)
+{
+    return type != BrsRtmpConnPlay;
+}
  
 }

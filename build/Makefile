@@ -123,6 +123,33 @@ share_rtmp_server/fast:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/build
 .PHONY : share_rtmp_server/fast
 
+app/BRSAppUtility.o: app/BRSAppUtility.cpp.o
+
+.PHONY : app/BRSAppUtility.o
+
+# target to build an object file
+app/BRSAppUtility.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o
+.PHONY : app/BRSAppUtility.cpp.o
+
+app/BRSAppUtility.i: app/BRSAppUtility.cpp.i
+
+.PHONY : app/BRSAppUtility.i
+
+# target to preprocess a source file
+app/BRSAppUtility.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.i
+.PHONY : app/BRSAppUtility.cpp.i
+
+app/BRSAppUtility.s: app/BRSAppUtility.cpp.s
+
+.PHONY : app/BRSAppUtility.s
+
+# target to generate assembly for a file
+app/BRSAppUtility.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.s
+.PHONY : app/BRSAppUtility.cpp.s
+
 app/BRSClientContext.o: app/BRSClientContext.cpp.o
 
 .PHONY : app/BRSClientContext.o
@@ -176,6 +203,33 @@ app/BRSClientWorker.s: app/BRSClientWorker.cpp.s
 app/BRSClientWorker.cpp.s:
 	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.s
 .PHONY : app/BRSClientWorker.cpp.s
+
+app/BRSDataSource.o: app/BRSDataSource.cpp.o
+
+.PHONY : app/BRSDataSource.o
+
+# target to build an object file
+app/BRSDataSource.cpp.o:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o
+.PHONY : app/BRSDataSource.cpp.o
+
+app/BRSDataSource.i: app/BRSDataSource.cpp.i
+
+.PHONY : app/BRSDataSource.i
+
+# target to preprocess a source file
+app/BRSDataSource.cpp.i:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.i
+.PHONY : app/BRSDataSource.cpp.i
+
+app/BRSDataSource.s: app/BRSDataSource.cpp.s
+
+.PHONY : app/BRSDataSource.s
+
+# target to generate assembly for a file
+app/BRSDataSource.cpp.s:
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.s
+.PHONY : app/BRSDataSource.cpp.s
 
 app/BRSRtmpServer.o: app/BRSRtmpServer.cpp.o
 
@@ -969,12 +1023,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... share_rtmp_server"
+	@echo "... app/BRSAppUtility.o"
+	@echo "... app/BRSAppUtility.i"
+	@echo "... app/BRSAppUtility.s"
 	@echo "... app/BRSClientContext.o"
 	@echo "... app/BRSClientContext.i"
 	@echo "... app/BRSClientContext.s"
 	@echo "... app/BRSClientWorker.o"
 	@echo "... app/BRSClientWorker.i"
 	@echo "... app/BRSClientWorker.s"
+	@echo "... app/BRSDataSource.o"
+	@echo "... app/BRSDataSource.i"
+	@echo "... app/BRSDataSource.s"
 	@echo "... app/BRSRtmpServer.o"
 	@echo "... app/BRSRtmpServer.i"
 	@echo "... app/BRSRtmpServer.s"

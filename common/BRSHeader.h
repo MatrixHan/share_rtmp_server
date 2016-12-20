@@ -4,8 +4,7 @@
 namespace BRS
 {
  
-  struct BRSPacket;
-  struct BRSGop;
+
   class  BRSSocket;
   struct BRSUser;
   struct BRSClientContext;

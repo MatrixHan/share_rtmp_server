@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../app/BRSAppUtility.h
+BRSCommon.h
+-
+
 ../app/BRSClientContext.h
 BRSCommon.h
 -
@@ -26,6 +30,18 @@ BRSHandShake.h
 BRSProtocol.h
 -
 BRSRtmpStack.h
+-
+BRSAppUtility.h
+-
+
+../app/BRSDataSource.h
+BRSCommon.h
+-
+BRSKernelCodec.h
+-
+BRSFlv.h
+-
+BRSRtmpPackets.h
 -
 
 ../app/BRSRtmpServer.h
@@ -438,12 +454,34 @@ string
 BRSConsts.h
 -
 
+/home/brave/projects/share_rtmp_server/app/BRSAppUtility.cpp
+BRSAppUtility.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+arpa/inet.h
+-
+netinet/in.h
+-
+BRSLog.h
+-
+
 /home/brave/projects/share_rtmp_server/app/BRSClientContext.cpp
 
 /home/brave/projects/share_rtmp_server/app/BRSClientWorker.cpp
 BRSClientWorker.h
 -
 BRSServer.h
+-
+BRSRtmpAmf0.h
+-
+
+/home/brave/projects/share_rtmp_server/app/BRSDataSource.cpp
+BRSDataSource.h
+-
+BRSKernelError.h
 -
 
 /home/brave/projects/share_rtmp_server/app/BRSRtmpServer.cpp

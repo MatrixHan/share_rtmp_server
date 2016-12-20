@@ -23,6 +23,7 @@ void BRSCoroutine::fun(schedule* S, void* ud)
     BRSWorker * brsw = static_cast<BRSWorker*>(ud);
     brsw->mContext.menv = S;
     brsw->do_something();
+     
 //     coroutine_yield(S);
 }
 

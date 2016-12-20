@@ -15,7 +15,7 @@ ${PROJECT_SOURCE_DIR}/brs
 )
 
 INCLUDE_DIRECTORIES(objs 
-    objs/hp  objs/openssl/include   objs/coroutine/include   
+    objs/hp  objs/openssl/include   objs/coroutine/include  
     common   core  kernel  network   protocol  app)
 
 set(SOURCE_FILES brs/share_rtmp_server.cpp )
