@@ -10,82 +10,169 @@ int64_t brs_generate_id()
     return brs_gvid++;
 }
   
-BrsStatisticVhost::BrsStatisticVhost()
+BRSGopCache::BRSGopCache()
 {
-    id = brs_generate_id();
-    
-    //kbps = new SrsKbps();
-    //kbps->set_io(NULL, NULL);
-    
-    nb_clients = 0;
-    nb_streams = 0;
+    cached_video_count = 0;
+    enable_cache_gop = true;
+    audio_after_last_video_count = 0;
 }
 
-BrsStatisticVhost::~BrsStatisticVhost()
+BRSGopCache::~BRSGopCache()
 {
-    //srs_freep(kbps);
+    clear();
 }
 
-int BrsStatisticVhost::dumps(std::stringstream& ss)
+void BRSGopCache::dispose()
 {
-      int ret = ERROR_SUCCESS;
+  clear();
+}
+
+void BRSGopCache::set(bool enabled)
+{
+    enable_cache_gop = enabled;
+    if(!enabled){
+      brs_info("disable gop cache, clear %d packets.", (int)gop_cache.size());
+        clear();
+        return;
+    }
+    brs_info("enable gop cache");
+}
+
+int BRSGopCache::cache(BrsSharedPtrMessage* shared_mg)
+{
+    int ret = ERROR_SUCCESS;
+    if(!enable_cache_gop)
+    {
+      brs_verbose("gop cache disabled!");
+      return ret;
+    }
     
-   
+    BrsSharedPtrMessage * ms=shared_mg;
+    if(ms->is_video())
+    {
+      if(!BrsFlvCodec::video_is_h264(ms->payload,ms->size))
+      {
+	  brs_info("gop cache drop video for none h.264");
+	  return ret;
+      }
+      cached_video_count++;
+      audio_after_last_video_count = 0;
+    }
+    if(pure_audio())
+    {
+	brs_verbose("ignore any frame util got a h264 video frame.");
+        return ret;
+    }
+    
+    if(ms->is_audio())
+    {
+      audio_after_last_video_count++;
+    }
+    
+    if(audio_after_last_video_count > BRS_PURE_AUDIO_GUESS_COUNT)
+    {
+	brs_warn("clear gop cache for guess pure audio overflow");
+        clear();
+        return ret;
+    }
+    // clear gop cache when got key frame
+    if (ms->is_video() && BrsFlvCodec::video_is_keyframe(ms->payload, ms->size)) {
+        brs_info("clear gop cache when got keyframe. vcount=%d, count=%d",
+            cached_video_count, (int)gop_cache.size());
+            
+        clear();
+        
+        // curent msg is video frame, so we set to 1.
+        cached_video_count = 1;
+    }
+    
+    // cache the frame.
+    gop_cache.push_back(ms->copy());
     
     return ret;
 }
 
-BrsStatisticStream::BrsStatisticStream()
+bool BRSGopCache::empty()
 {
-    id = brs_generate_id();
-    vhost = NULL;
-    active = false;
-    connection_cid = -1;
-    
-    has_video = false;
-    vcodec = BrsCodecVideoReserved;
-    avc_profile = BrsAvcProfileReserved;
-    avc_level = BrsAvcLevelReserved;
-    
-    has_audio = false;
-    acodec = BrsCodecAudioReserved1;
-    asample_rate = BrsCodecAudioSampleRateReserved;
-    asound_type = BrsCodecAudioSoundTypeReserved;
-    aac_object = BrsAacObjectTypeReserved;
-    
-    //kbps = new SrsKbps();
-    //kbps->set_io(NULL, NULL);
-    
-    nb_clients = 0;
+    return gop_cache.empty();
 }
 
-BrsStatisticStream::~BrsStatisticStream()
-{
 
-}
-
-void BrsStatisticStream::publish(int cid)
+void BRSGopCache::clear()
 {
-    connection_cid = cid;
-    active = true;
+    std::vector<BrsSharedPtrMessage*>::iterator itr;
+    for(itr = gop_cache.begin();itr!=gop_cache.end();++itr)
+    {
+	   BrsSharedPtrMessage *msg = *itr;
+	   SafeDelete(msg);
+    }
+    gop_cache.clear();
     
-    vhost->nb_streams++;
+    cached_video_count = 0;
+    audio_after_last_video_count = 0;
 }
 
-int BrsStatisticStream::dumps(std::stringstream& ss)
+bool BRSGopCache::pure_audio()
 {
-
+    return cached_video_count==0;
 }
 
-void BrsStatisticStream::close()
+int64_t BRSGopCache::start_time()
 {
-     has_video = false;
-    has_audio = false;
-    active = false;
+    if(empty())
+    {
+      return 0;
+    }
+    BrsSharedPtrMessage * msg = gop_cache[0];
+    assert(msg);
+    return msg->timestamp;
+}
+
+
+BRSQuque::BRSQuque()
+{
+    nb_video = nb_audio = 0;
     
-    vhost->nb_streams--;
 }
 
+BRSQuque::~BRSQuque()
+{
+
+}
+
+void BRSQuque::push(BrsSharedPtrMessage* msgp)
+{
+      if(!msgp)
+	return;
+      minQuque.insert(std::make_pair<int64_t,BrsSharedPtrMessage*>(msgp->timestamp,msgp));
+      if(msgp->is_video())
+	nb_video++;
+      else
+	nb_audio++;
+}
+
+BrsSharedPtrMessage* BRSQuque::pop()
+{
+      minItr itr = minQuque.begin();
+      BrsSharedPtrMessage * msg = itr->second;
+      minQuque.erase(itr);
+      if(msg->is_video())
+	nb_video--;
+      else
+	nb_audio--;
+      return msg;
+}
+
+void BRSQuque::clear()
+{
+    minItr itr;
+    for(itr=minQuque.begin();itr!=minQuque.end();++itr)
+    {
+      BrsSharedPtrMessage * msg = itr->second;
+      SafeDelete(msg);
+    }
+    minQuque.clear();
+}
 
 
 }

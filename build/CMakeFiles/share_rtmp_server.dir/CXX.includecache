@@ -227,6 +227,8 @@ BRSUtils.h
 -
 errno.h
 -
+sys/uio.h
+-
 
 ../network/BRSServer.h
 BRSCommon.h

@@ -120,10 +120,10 @@ int BRSReadWriter::readn(const void* buf ,size_t count, ssize_t* nread)
 {
     size_t nleft = count;
     void *bufp = (void *)buf;
-    
+    int  nnread = 0;
     while(nleft > 0)
     {
-      if ((*nread = read(sfd ,bufp ,nleft))<0)
+      if ((nnread = read(sfd ,bufp ,nleft))<0)
       {
 	      if (errno == EINTR||errno == EAGAIN)
 	      {
@@ -136,22 +136,23 @@ int BRSReadWriter::readn(const void* buf ,size_t count, ssize_t* nread)
 		  return -1;
 	      }
       }
-      else if(*nread == 0)
+      else if(nnread == 0)
       {
 	  break;
       }
-      bufp += *nread;
-      nleft -=*nread;
-      
+      bufp += nnread;
+      nleft -=nnread;
+      if(nread)
+      *nread += nnread;
+      recv_bytes += nnread;
     }
      return  0;
 }
 int BRSReadWriter::writen(const void* buf ,size_t count,ssize_t* nwrite)
 {
     size_t nleft = count;
-    ssize_t nwritten;
+    ssize_t nwritten=0;
     void *bufp = (void *)buf;
-    
     while(nleft > 0)
     {
       if ((nwritten = write(sfd ,bufp ,nleft))<0)
@@ -173,10 +174,37 @@ int BRSReadWriter::writen(const void* buf ,size_t count,ssize_t* nwrite)
       }
       bufp += nwritten;
       nleft -=nwritten;
-      
+      if(nwrite)
+      *nwrite += nwritten;
+      send_bytes += nwritten;
     }
      return  0;
   
+}
+
+int BRSReadWriter::writev(const iovec *iov, int iov_size, ssize_t* nwrite)
+{
+    int ret = ERROR_SUCCESS;
+   
+    ssize_t nb_write = ::writev(sfd, iov, iov_size);
+    if (nwrite) {
+        *nwrite = nb_write;
+    }
+    
+    // On success a non-negative integer equal to nbyte is returned.
+    // Otherwise, a value of -1 is returned and errno is set to indicate the error.
+    if (nb_write <= 0) {
+        // @see https://github.com/ossrs/srs/issues/200
+        if (nb_write < 0 && errno == ETIME) {
+            return ERROR_SOCKET_TIMEOUT;
+        }
+        
+        return ERROR_SOCKET_WRITE;
+    }
+    
+    send_bytes += nb_write;
+    
+    return ret;
 }
 
 }

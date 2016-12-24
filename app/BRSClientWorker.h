@@ -36,6 +36,7 @@ namespace BRS
   {
   private:
     bool disposed;
+    std::string ip;
   private:
    BRSComplexHandShake * complexHandshake;
    BrsRequest			*req;

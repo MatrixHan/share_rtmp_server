@@ -15,7 +15,7 @@ namespace BRS
     BRSComplexHandShake();
     ~BRSComplexHandShake();
   public:
-    virtual int handshake(BRSReadWriter &srw,char *c1);
+    virtual int handshake(BRSReadWriter *srw,char *c1);
   };
   
 
@@ -25,7 +25,7 @@ namespace BRS
     BRSSimpleHandShake();
     ~BRSSimpleHandShake();
   public:
-    virtual int handshake(BRSReadWriter  &srw,char *c1);
+    virtual int handshake(BRSReadWriter  *srw,char *c1);
     
   };
   

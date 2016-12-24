@@ -3,6 +3,7 @@
 #include <BRSCommon.h>
 #include <BRSUtils.h>
 #include <errno.h>
+#include <sys/uio.h>
 
 #define SOCKET_TIMEOUT 30
 
@@ -36,7 +37,7 @@ public:
   virtual   int 	readn(const void *buf ,size_t count,ssize_t* nread);
   virtual   int 	writet(const void* buf, size_t size, ssize_t* nwrite);
   virtual   int	 	writen(const void *buf ,size_t count, ssize_t* nwrite);
-  
+  virtual   int 	writev(const iovec *iov, int iov_size, ssize_t* nwrite);
 };
   
 }

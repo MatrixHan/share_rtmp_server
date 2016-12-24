@@ -25,7 +25,18 @@ int BRSSocket::initSocket(int port)
       servaddr.sin_family = AF_INET;
       servaddr.sin_port = htons(port);
       servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-  return 0;
+      struct timeval tv_timeout;  
+      tv_timeout.tv_sec = 60;  
+      tv_timeout.tv_usec = 0;  
+      if (setsockopt(sfd, SOL_SOCKET, SO_SNDTIMEO, (void *) &tv_timeout, sizeof(struct timeval)) < 0) {  
+	  perror("setsockopt");  
+      }  
+      tv_timeout.tv_sec = 60;  
+      tv_timeout.tv_usec = 0;  
+      if (setsockopt(sfd, SOL_SOCKET, SO_RCVTIMEO, (void *) &tv_timeout, sizeof(struct timeval)) < 0) {  
+	  perror("setsockopt");  
+      }  
+   return 0;
 }
 
 int BRSSocket::optionSocket(int level, int optname)

@@ -477,7 +477,7 @@ int BRSProtocol::do_simple_send(BrsMessageHeader* mh, char* payload, int size)
         iovs[1].iov_len = payload_size;
         p += payload_size;
         
-        if ((ret = skt->writen(iovs, 2, NULL)) != ERROR_SUCCESS) {
+        if ((ret = skt->writev(iovs, 2, NULL)) != ERROR_SUCCESS) {
             if (!brs_is_client_gracefully_close(ret)) {
                 brs_error("send packet with writev failed. ret=%d", ret);
             }

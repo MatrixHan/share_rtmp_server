@@ -1047,7 +1047,7 @@ BRSComplexHandShake::BRSComplexHandShake(){}
 BRSComplexHandShake::~BRSComplexHandShake(){}
 
 
-int BRSComplexHandShake::handshake(BRSReadWriter & srw, char* _c1)
+int BRSComplexHandShake::handshake(BRSReadWriter *srw, char* _c1)
 {
 	int ret = ERROR_SUCCESS;
 	
@@ -1105,7 +1105,7 @@ int BRSComplexHandShake::handshake(BRSReadWriter & srw, char* _c1)
 	s0s1s2[0] = 0x03;
 	s1.dump(s0s1s2 + 1);
 	s2.dump(s0s1s2 + 1537);
-    if ((ret = srw.writen(s0s1s2, 3073, &nsize)) != ERROR_SUCCESS) {
+    if ((ret = srw->writen(s0s1s2, 3073, &nsize)) != ERROR_SUCCESS) {
         brs_error("complex handshake send s0s1s2 failed. ret=%d", ret);
         return ret;
     }
@@ -1114,7 +1114,7 @@ int BRSComplexHandShake::handshake(BRSReadWriter & srw, char* _c1)
     // recv c2
     char* c2 = new char[1536];
     BrsAutoFree(char, c2, true);
-    if ((ret = srw.readn(c2, 1536, &nsize)) != ERROR_SUCCESS) {
+    if ((ret = srw->readn(c2, 1536, &nsize)) != ERROR_SUCCESS) {
         brs_error("complex handshake read c2 failed. ret=%d", ret);
         return ret;
     }
@@ -1129,7 +1129,7 @@ BRSSimpleHandShake::BRSSimpleHandShake(){}
 
 BRSSimpleHandShake::~BRSSimpleHandShake(){}
 
-int BRSSimpleHandShake::handshake(BRSReadWriter &srw, char* c1)
+int BRSSimpleHandShake::handshake(BRSReadWriter *srw, char* c1)
 {
       
   return 0;

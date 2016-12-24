@@ -16,6 +16,7 @@ BRSClientWorker::BRSClientWorker(int pfd,BRSServer *mserver):BRSWorker(mserver)
       skt = new BRSReadWriter(pfd);
       req = new BrsRequest();
       res = new BrsResponse();
+      skt = new BRSReadWriter(pfd);
       rtmp = new BrsRtmpServer(skt);
       disposed = false;
       
@@ -37,6 +38,7 @@ BRSClientWorker::~BRSClientWorker()
 void BRSClientWorker::do_something()
 {
       
+     ip = brs_get_peer_ip(this->mContext.client_socketfd);
      int ret = ERROR_SUCCESS;
      ret=this->rtmpHandshake();
      if(ret!=ERROR_SUCCESS){
@@ -51,6 +53,7 @@ void BRSClientWorker::do_something()
         return ;
     }
     
+    req->ip = ip;
     brs_info("discovery app success. schema=%s, vhost=%s, port=%s, app=%s",
         req->schema.c_str(), req->vhost.c_str(), req->port.c_str(), req->app.c_str());
     
@@ -95,9 +98,9 @@ void BRSClientWorker::do_something()
         }
     }
      ret = service_cycle();
-    coroutine_yield(this->mContext.menv);
-    close(this->mContext.client_socketfd);
-    this->brsServer->closeClient(this->mContext.client_socketfd);
+
+     close(this->mContext.client_socketfd);
+     this->brsServer->closeClient(this->mContext.client_socketfd);
 }
 
 int BRSClientWorker::rtmpHandshake()
@@ -105,11 +108,11 @@ int BRSClientWorker::rtmpHandshake()
     int ret = ERROR_SUCCESS;
 	
     ssize_t nsize;
-    BRSReadWriter skt(this->mContext.client_socketfd);
+    
     
     char* c0c1 = new char[1537];
     BrsAutoFree(char, c0c1, true);
-    if ((ret = skt.readn(c0c1, 1537, &nsize)) != ERROR_SUCCESS) {
+    if ((ret = skt->readn(c0c1, 1537, &nsize)) != ERROR_SUCCESS) {
         brs_warn("read c0c1 failed. ret=%d", ret);
         return ret;
     }
@@ -139,7 +142,7 @@ int BRSClientWorker::rtmpHandshake()
     BrsAutoFree(char, s0s1s2, true);
 	// plain text required.
     s0s1s2[0] = 0x03;
-    if ((ret = skt.writen(s0s1s2, 3073, &nsize)) != ERROR_SUCCESS) {
+    if ((ret = skt->writen(s0s1s2, 3073, &nsize)) != ERROR_SUCCESS) {
         brs_warn("simple handshake send s0s1s2 failed. ret=%d", ret);
         return ret;
     }
@@ -147,7 +150,7 @@ int BRSClientWorker::rtmpHandshake()
     
     char* c2 = new char[1536];
     BrsAutoFree(char, c2, true);
-    if ((ret = skt.readn(c2, 1536, &nsize)) != ERROR_SUCCESS) {
+    if ((ret = skt->readn(c2, 1536, &nsize)) != ERROR_SUCCESS) {
         brs_warn("simple handshake read c2 failed. ret=%d", ret);
         return ret;
     }
@@ -198,7 +201,7 @@ int BRSClientWorker::service_cycle()
     
     while (!disposed) {
         ret = stream_service_cycle();
-        
+	//coroutine_yield(this->mContext.menv);
         // stream service must terminated with error, never success.
         // when terminated with success, it's user required to stop.
         if (ret == ERROR_SUCCESS) {
