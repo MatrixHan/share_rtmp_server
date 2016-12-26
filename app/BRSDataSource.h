@@ -4,6 +4,8 @@
 #include <BRSKernelCodec.h>
 #include <BRSFlv.h>
 #include <BRSRtmpPackets.h>
+#include <BRSRtmpMsgArray.h>
+
 
 namespace BRS 
 {
@@ -41,17 +43,17 @@ public:
   virtual bool pure_audio();
 };
 
-class BRSQuque
+class BRSQueue
 {
 private:
-  std::multimap<uint64_t,BrsSharedPtrMessage*> minQuque;
+  std::multimap<uint64_t,BrsSharedPtrMessage*> minQueue;
   int nb_video;
   int nb_audio;
   typedef std::multimap<int64_t,BrsSharedPtrMessage*>::iterator minItr;
   
 public:
-  BRSQuque();
-  virtual ~BRSQuque();
+  BRSQueue();
+  virtual ~BRSQueue();
 public:
   
   virtual void push(BrsSharedPtrMessage*);
@@ -59,6 +61,118 @@ public:
   virtual BrsSharedPtrMessage* pop();
   
   virtual void clear();
+};
+
+class BRSMessageQueue
+{
+private:
+   bool _ignore_shrink;
+  int64_t av_start_time;
+  int64_t av_end_time;
+  int	  queue_size_ms;
+  std::vector<BrsSharedPtrMessage*> msgs;
+public:
+  BRSMessageQueue(bool ignore_shrink = false);
+  virtual ~BRSMessageQueue();
+  
+public:
+  //
+  virtual int size();
+  //队列时长
+  virtual int duration();
+  
+  virtual void set_queue_size(double queue_size);
+  
+public:
+  
+  virtual int enqueue(BrsSharedPtrMessage* msg,bool * is_overflow = NULL);
+  
+  virtual int dump_packets(int max_count,BrsSharedPtrMessage **pmsgs,int & count);
+  
+private:
+    /**
+    * remove a gop from the front.
+    * if no iframe found, clear it.
+    * last packet push this queue
+    */
+    virtual void shrink();
+public:
+    /**
+     * clear all messages in queue.
+     */
+    virtual void clear();
+};
+
+
+class BRSConsumer
+{
+private:
+    BRSSource * source;
+    BRSMessageQueue *queue;
+    
+    bool paused;
+    
+    // when source id changed, notice all consumers
+    bool should_update_source_id;
+    
+public:
+  BRSConsumer(BRSSource *_source);
+  virtual ~BRSConsumer();
+public:
+  
+  virtual void set_queue_size(double queue_size);
+  
+  virtual void update_source_id();
+  
+public:
+  
+  virtual int get_time();
+  
+  virtual int enqueue(BrsSharedPtrMessage * shared_ms);
+  
+  virtual int dump_packets(BrsMessageArray * msgs,int &count);
+  
+  virtual int on_play_client_pause(bool is_pause);
+};
+
+class BRSSource
+{
+private:
+  static std::map<std::string,BRSSource*> pool;
+public:
+  static int create(BrsRequest *req,BRSSource **pps);
+  
+  static BRSSource * fetch(BrsRequest *req);
+  
+  static BRSSource * fetch(std::string vhost,std::string app,std::string stream);
+  
+  static void dispose_all();
+  
+  static int cycle_all();
+    /**
+    * when system exit, destroy the sources,
+    * for gmc to analysis mem leaks.
+    */
+  static void destroy();
+private:
+    // source id,
+    // for publish, it's the publish client id.
+    // for edge, it's the edge ingest id.
+    // when source id changed, for example, the edge reconnect,
+    // invoke the on_source_id_changed() to let all clients know.
+    int _source_id;
+    // deep copy of client request.
+    BrsRequest* _req;
+    // to delivery stream to clients.
+    std::vector<BRSConsumer*> consumers;
+    // the time jitter algorithm for vhost.
+  //  BrsRtmpJitterAlgorithm jitter_algorithm;
+    // whether use interlaced/mixed algorithm to correct timestamp.
+    bool mix_correct;
+    BRSQueue* mix_queue;
+    // whether stream is monotonically increase.
+    bool is_monotonically_increase;
+    int64_t last_packet_time;
 };
 
 }
