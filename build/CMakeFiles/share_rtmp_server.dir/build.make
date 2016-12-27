@@ -609,9 +609,33 @@ CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o.provides: CMakeFiles/sh
 CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o.provides.build: CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o
 
 
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o: ../protocol/BRSRtmpMsgArray.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o -c /home/brave/projects/share_rtmp_server/protocol/BRSRtmpMsgArray.cpp
+
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/brave/projects/share_rtmp_server/protocol/BRSRtmpMsgArray.cpp > CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.i
+
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/brave/projects/share_rtmp_server/protocol/BRSRtmpMsgArray.cpp -o CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.s
+
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.requires:
+
+.PHONY : CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.requires
+
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.provides: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.requires
+	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.provides.build
+.PHONY : CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.provides
+
+CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.provides.build: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o
+
+
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o: ../protocol/BRSProtocol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o -c /home/brave/projects/share_rtmp_server/protocol/BRSProtocol.cpp
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.i: cmake_force
@@ -635,7 +659,7 @@ CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o.provides.build: CMak
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o: ../protocol/BRSRtmpUtility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o -c /home/brave/projects/share_rtmp_server/protocol/BRSRtmpUtility.cpp
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.i: cmake_force
@@ -659,7 +683,7 @@ CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o.provides.build: C
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o: ../protocol/BRSRtmpAmf0.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o -c /home/brave/projects/share_rtmp_server/protocol/BRSRtmpAmf0.cpp
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.i: cmake_force
@@ -683,7 +707,7 @@ CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o.provides.build: CMak
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o: ../protocol/BRSRtmpPackets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o -c /home/brave/projects/share_rtmp_server/protocol/BRSRtmpPackets.cpp
 
 CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.i: cmake_force
@@ -707,7 +731,7 @@ CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o.provides.build: C
 
 CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o: ../app/BRSUser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o -c /home/brave/projects/share_rtmp_server/app/BRSUser.cpp
 
 CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.i: cmake_force
@@ -731,7 +755,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSUser.cpp.o.provides.build: CMakeFiles/sh
 
 CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o: ../app/BRSDataSource.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o -c /home/brave/projects/share_rtmp_server/app/BRSDataSource.cpp
 
 CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.i: cmake_force
@@ -755,7 +779,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSDataSource.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o: ../app/BRSAppUtility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o -c /home/brave/projects/share_rtmp_server/app/BRSAppUtility.cpp
 
 CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.i: cmake_force
@@ -779,7 +803,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSAppUtility.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o: ../app/BRSClientWorker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o -c /home/brave/projects/share_rtmp_server/app/BRSClientWorker.cpp
 
 CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.i: cmake_force
@@ -803,7 +827,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSClientWorker.cpp.o.provides.build: CMake
 
 CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o: ../app/BRSClientContext.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o -c /home/brave/projects/share_rtmp_server/app/BRSClientContext.cpp
 
 CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.i: cmake_force
@@ -827,7 +851,7 @@ CMakeFiles/share_rtmp_server.dir/app/BRSClientContext.cpp.o.provides.build: CMak
 
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: CMakeFiles/share_rtmp_server.dir/flags.make
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o: ../app/BRSRtmpServer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.o -c /home/brave/projects/share_rtmp_server/app/BRSRtmpServer.cpp
 
 CMakeFiles/share_rtmp_server.dir/app/BRSRtmpServer.cpp.i: cmake_force
@@ -874,6 +898,7 @@ share_rtmp_server_OBJECTS = \
 "CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o" \
 "CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o" \
 "CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o" \
+"CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o" \
 "CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o" \
 "CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o" \
 "CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o" \
@@ -911,6 +936,7 @@ share_rtmp_server: CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o
+share_rtmp_server: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o
@@ -926,7 +952,7 @@ share_rtmp_server: ../objs/coroutine/lib/coroutinelib.a
 share_rtmp_server: ../objs/openssl/lib/libssl.a
 share_rtmp_server: ../objs/openssl/lib/libcrypto.a
 share_rtmp_server: CMakeFiles/share_rtmp_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX executable share_rtmp_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX executable share_rtmp_server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/share_rtmp_server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -957,6 +983,7 @@ CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/netw
 CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o.requires
 CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o.requires
 CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o.requires
+CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o.requires
 CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o.requires
 CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o.requires
 CMakeFiles/share_rtmp_server.dir/requires: CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o.requires

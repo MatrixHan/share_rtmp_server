@@ -28,11 +28,11 @@ AUX_SOURCE_DIRECTORY(app SOURCE_FILES)
 
 ADD_DEFINITIONS("-g -O0")
 
-ADD_EXECUTABLE(share_rtmp_server   ${SOURCE_FILES})
-TARGET_LINK_LIBRARIES(share_rtmp_server dl )
-TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/coroutine/lib/coroutinelib.a)
-TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libssl.a)
-TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libcrypto.a)
-#TARGET_LINK_LIBRARIES(share_rtmp_server ${PROJECT_SOURCE_DIR}/objs/hp/libhttp_parser.a)
-TARGET_LINK_LIBRARIES(share_rtmp_server -ldl )
+ADD_EXECUTABLE(brs   ${SOURCE_FILES})
+TARGET_LINK_LIBRARIES(brs dl )
+TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/coroutine/lib/coroutinelib.a)
+TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libssl.a)
+TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libcrypto.a)
+#TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/hp/libhttp_parser.a)
+TARGET_LINK_LIBRARIES(brs -ldl )
 

@@ -19,7 +19,9 @@
 
 #include <math.h>
 #include <algorithm>
+#ifndef NDEBUG
 #include <assert.h>
+#endif
 #include <string>
 #include <vector>
 #include <map>

@@ -1,1 +1,1 @@
-/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir
+/home/brave/projects/share_rtmp_server/build/CMakeFiles/brs.dir

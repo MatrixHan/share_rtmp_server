@@ -7,6 +7,7 @@ namespace BRS
 BRSServer::BRSServer():clientWorker(NULL)
 {
     brsClientContextMaps = new BRSClientContextMaps();
+    consumersOnPublisher = new ConsumersOnPublisher();
     server_epoll	 = new BRSEpoll();
 }
 
@@ -73,9 +74,55 @@ void BRSServer::start()
 	      }
 	  }
 	}
+	usleep(10);
   }
   BRSCoroutine_close();
 }
+
+void BRSServer::pushConsumer(int publisherFd, BRSConsumer* consumer)
+{
+    consumersOnPublisher->insert(std::make_pair<int,BRSConsumer*>(publisherFd,consumer));
+}
+
+int BRSServer::delConsumer( int clientFd)
+{
+    int ret = ERROR_SUCCESS;
+  
+    PublisherItr pitr;
+    for(pitr=consumersOnPublisher->begin();pitr!=consumersOnPublisher->end();++pitr)
+    {
+	    BRSConsumer *bcm = pitr->second;
+	  if(clientFd == bcm->getClientFd())
+	  {
+	     consumersOnPublisher->erase(pitr);
+	     return 0;
+	  }
+	
+    }
+    return -1;
+}
+
+
+BRSConsumer* BRSServer::popConsumer(int publisherFd, int clientFd)
+{
+    BRSConsumer *bcm =NULL;
+    PubPair pp = consumersOnPublisher->equal_range(publisherFd);
+    PublisherItr pitr;
+    for(pitr=pp.first;pitr!=pp.second;++pitr)
+    {
+	     bcm = pitr->second;
+	  if(clientFd == bcm->getClientFd())
+	  {
+	     consumersOnPublisher->erase(pitr);
+	     return bcm;
+	  }
+	
+    }
+    return NULL;
+}
+
+
+
 int BRSServer::closeClient(int fd)
 {
     BRSWorker  *clientWorker;

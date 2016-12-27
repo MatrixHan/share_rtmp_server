@@ -36,5 +36,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/share_rtmp_server.dir/DependInfo.cmake"
+  "CMakeFiles/brs.dir/DependInfo.cmake"
   )

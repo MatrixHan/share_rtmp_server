@@ -1,16 +1,15 @@
 #pragma once 
 
 #include <BRSCommon.h>
-
+#include <BRSFlv.h>
 namespace BRS 
 {
 
-class BrsSharePtrMessage;  
 class BrsMessageArray
 {
-private:
+public:
   
-  BrsSharePtrMessage ** msgs;
+  BrsSharedPtrMessage ** msgs;
   int max;
   
 public:

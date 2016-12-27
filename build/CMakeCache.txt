@@ -150,6 +150,12 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+brs_BINARY_DIR:STATIC=/home/brave/projects/share_rtmp_server/build
+
+//Value Computed by CMake
+brs_SOURCE_DIR:STATIC=/home/brave/projects/share_rtmp_server
+
+//Value Computed by CMake
 share_rtmp_server_BINARY_DIR:STATIC=/home/brave/projects/share_rtmp_server/build
 
 //Value Computed by CMake

@@ -6,6 +6,7 @@
 #include <BRSRtmpPackets.h>
 #include <BRSRtmpMsgArray.h>
 
+using namespace std;
 
 namespace BRS 
 {
@@ -46,7 +47,7 @@ public:
 class BRSQueue
 {
 private:
-  std::multimap<uint64_t,BrsSharedPtrMessage*> minQueue;
+  std::multimap<int64_t,BrsSharedPtrMessage*> minQueue;
   int nb_video;
   int nb_audio;
   typedef std::multimap<int64_t,BrsSharedPtrMessage*>::iterator minItr;
@@ -102,39 +103,7 @@ public:
      */
     virtual void clear();
 };
-
-
-class BRSConsumer
-{
-private:
-    BRSSource * source;
-    BRSMessageQueue *queue;
-    
-    bool paused;
-    
-    // when source id changed, notice all consumers
-    bool should_update_source_id;
-    
-public:
-  BRSConsumer(BRSSource *_source);
-  virtual ~BRSConsumer();
-public:
-  
-  virtual void set_queue_size(double queue_size);
-  
-  virtual void update_source_id();
-  
-public:
-  
-  virtual int get_time();
-  
-  virtual int enqueue(BrsSharedPtrMessage * shared_ms);
-  
-  virtual int dump_packets(BrsMessageArray * msgs,int &count);
-  
-  virtual int on_play_client_pause(bool is_pause);
-};
-
+class BRSConsumer;
 class BRSSource
 {
 private:
@@ -173,6 +142,69 @@ private:
     // whether stream is monotonically increase.
     bool is_monotonically_increase;
     int64_t last_packet_time;
+public:
+  BRSSource();
+  virtual ~BRSSource();
+public:
+  
+  virtual int initialize(BrsRequest *r);
+  
+  virtual void dispose();
+  
+  virtual int onMetaData(BrsCommonMessage *msg ,BrsOnMetaDataPacket *metadata);
+  
+  virtual int onVideo(BrsCommonMessage *msg);
+  
+  virtual int onVideoImp(BrsSharedPtrMessage *videoMsg);
+  
+  virtual int onAudio(BrsCommonMessage *msg);
+  
+  virtual int onAudioImp(BrsSharedPtrMessage *audioMsg);
+private:
+    BrsSharedPtrMessage* cache_metadata;
+    // the cached video sequence header.
+    BrsSharedPtrMessage* cache_sh_video;
+    // the cached audio sequence header.
+    BrsSharedPtrMessage* cache_sh_audio;
+    
 };
+
+
+class BRSConsumer
+{
+private:
+    BRSSource * source;
+    BRSMessageQueue *queue;
+    
+    int  clientFd;
+    
+    bool paused;
+    
+    // when source id changed, notice all consumers
+    bool should_update_source_id;
+    
+public:
+  BRSConsumer(BRSSource *_source,int _clientFd);
+  virtual ~BRSConsumer();
+public:
+  
+  virtual void set_queue_size(double queue_size);
+  
+  virtual void update_source_id();
+  
+public:
+  
+  virtual int getClientFd();
+  
+  virtual int get_time();
+  
+  virtual int enqueue(BrsSharedPtrMessage * shared_ms);
+  
+  virtual int dump_packets(BrsMessageArray * msgs,int &count);
+  
+  virtual int on_play_client_pause(bool is_pause);
+};
+
+
 
 }

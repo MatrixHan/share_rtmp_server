@@ -35,6 +35,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/brave/projects/share_rtmp_server/network/BRSSocket.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/network/BRSSocket.cpp.o"
   "/home/brave/projects/share_rtmp_server/protocol/BRSProtocol.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o"
   "/home/brave/projects/share_rtmp_server/protocol/BRSRtmpAmf0.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o"
+  "/home/brave/projects/share_rtmp_server/protocol/BRSRtmpMsgArray.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o"
   "/home/brave/projects/share_rtmp_server/protocol/BRSRtmpPackets.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpPackets.cpp.o"
   "/home/brave/projects/share_rtmp_server/protocol/BRSRtmpUtility.cpp" "/home/brave/projects/share_rtmp_server/build/CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o"
   )

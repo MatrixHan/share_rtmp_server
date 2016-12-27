@@ -43,6 +43,8 @@ BRSFlv.h
 -
 BRSRtmpPackets.h
 -
+BRSRtmpMsgArray.h
+-
 
 ../app/BRSRtmpServer.h
 BRSCommon.h
@@ -245,6 +247,8 @@ BRSPublicEntity.h
 -
 BRSCoroutine.h
 -
+BRSDataSource.h
+-
 
 ../network/BRSSocket.h
 BRSCommon.h
@@ -438,6 +442,12 @@ string
 vector
 -
 
+../protocol/BRSRtmpMsgArray.h
+BRSCommon.h
+-
+BRSFlv.h
+-
+
 ../protocol/BRSRtmpPackets.h
 BRSCommon.h
 -
@@ -484,6 +494,8 @@ BRSRtmpAmf0.h
 BRSDataSource.h
 -
 BRSKernelError.h
+-
+BRSMath.h
 -
 
 /home/brave/projects/share_rtmp_server/app/BRSRtmpServer.cpp
@@ -782,6 +794,10 @@ BRSLog.h
 BRSKernelError.h
 -
 BRSStream.h
+-
+
+/home/brave/projects/share_rtmp_server/protocol/BRSRtmpMsgArray.cpp
+BRSRtmpMsgArray.h
 -
 
 /home/brave/projects/share_rtmp_server/protocol/BRSRtmpPackets.cpp

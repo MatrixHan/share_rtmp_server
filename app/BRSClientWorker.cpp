@@ -262,7 +262,40 @@ int BRSClientWorker::stream_service_cycle()
     brs_trace("client identified, type=%s, stream_name=%s, duration=%.2f", 
         brs_client_type_string(type).c_str(), req->stream.c_str(), req->duration);
     
+    BRSSource * source = BRSSource::fetch(req);
     
+    if(!source )
+    {
+      if(ret=BRSSource::create(req,&source)!=ERROR_SUCCESS)
+      {
+	  return ret;
+      }
+    }
+    
+    switch(type)
+    {
+      case BrsRtmpConnPlay:
+	break;
+      case BrsRtmpConnFMLEPublish:
+	brs_verbose("FMLE start to publish stream %s.", req->stream.c_str());
+            
+            if ((ret = rtmp->start_fmle_publish(res->stream_id)) != ERROR_SUCCESS) {
+                brs_error("start to publish stream failed. ret=%d", ret);
+                return ret;
+            }
+      case BrsRtmpConnFlashPublish:
+	   brs_verbose("flash start to publish stream %s.", req->stream.c_str());
+            
+            if ((ret = rtmp->start_flash_publish(res->stream_id)) != ERROR_SUCCESS) {
+                brs_error("flash start to publish stream failed. ret=%d", ret);
+                return ret;
+            }
+      default: {
+            ret = ERROR_SYSTEM_CLIENT_INVALID;
+            brs_info("invalid client type=%d. ret=%d", type, ret);
+            return ret;
+        }
+    }
     
     return ret;
 }

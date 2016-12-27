@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/brave/projects/share_rtmp_server
 CMAKE_BINARY_DIR = /home/brave/projects/share_rtmp_server/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/share_rtmp_server.dir
+# Target rules for target CMakeFiles/brs.dir
 
 # All Build rule for target.
-CMakeFiles/share_rtmp_server.dir/all:
-	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/depend
-	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34 "Built target share_rtmp_server"
-.PHONY : CMakeFiles/share_rtmp_server.dir/all
+CMakeFiles/brs.dir/all:
+	$(MAKE) -f CMakeFiles/brs.dir/build.make CMakeFiles/brs.dir/depend
+	$(MAKE) -f CMakeFiles/brs.dir/build.make CMakeFiles/brs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/brave/projects/share_rtmp_server/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35 "Built target brs"
+.PHONY : CMakeFiles/brs.dir/all
 
 # Include target in all.
-all: CMakeFiles/share_rtmp_server.dir/all
+all: CMakeFiles/brs.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/share_rtmp_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/brave/projects/share_rtmp_server/build/CMakeFiles 34
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/share_rtmp_server.dir/all
+CMakeFiles/brs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brave/projects/share_rtmp_server/build/CMakeFiles 35
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/brs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/brave/projects/share_rtmp_server/build/CMakeFiles 0
-.PHONY : CMakeFiles/share_rtmp_server.dir/rule
+.PHONY : CMakeFiles/brs.dir/rule
 
 # Convenience name for target.
-share_rtmp_server: CMakeFiles/share_rtmp_server.dir/rule
+brs: CMakeFiles/brs.dir/rule
 
-.PHONY : share_rtmp_server
-
-# clean rule for target.
-CMakeFiles/share_rtmp_server.dir/clean:
-	$(MAKE) -f CMakeFiles/share_rtmp_server.dir/build.make CMakeFiles/share_rtmp_server.dir/clean
-.PHONY : CMakeFiles/share_rtmp_server.dir/clean
+.PHONY : brs
 
 # clean rule for target.
-clean: CMakeFiles/share_rtmp_server.dir/clean
+CMakeFiles/brs.dir/clean:
+	$(MAKE) -f CMakeFiles/brs.dir/build.make CMakeFiles/brs.dir/clean
+.PHONY : CMakeFiles/brs.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/brs.dir/clean
 
 .PHONY : clean
 

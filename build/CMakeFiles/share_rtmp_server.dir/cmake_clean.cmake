@@ -22,6 +22,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/share_rtmp_server.dir/network/BRSReadWriter.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/network/BRSEpoll.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/network/BRSServer.cpp.o"
+  "CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpMsgArray.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/protocol/BRSProtocol.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpUtility.cpp.o"
   "CMakeFiles/share_rtmp_server.dir/protocol/BRSRtmpAmf0.cpp.o"
