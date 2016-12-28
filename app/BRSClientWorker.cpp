@@ -266,7 +266,7 @@ int BRSClientWorker::stream_service_cycle()
     
     if(!source )
     {
-      if(ret=BRSSource::create(req,&source)!=ERROR_SUCCESS)
+      if((ret=BRSSource::create(req,&source))!=ERROR_SUCCESS)
       {
 	  return ret;
       }
@@ -274,22 +274,38 @@ int BRSClientWorker::stream_service_cycle()
     
     switch(type)
     {
-      case BrsRtmpConnPlay:
-	break;
-      case BrsRtmpConnFMLEPublish:
+      case BrsRtmpConnPlay:{
+	brs_verbose("start to play stream %s.", req->stream.c_str());
+            
+            // response connection start play
+            if ((ret = rtmp->start_play(res->stream_id)) != ERROR_SUCCESS) {
+                brs_error("start to play stream failed. ret=%d", ret);
+                return ret;
+            }
+         
+	 ret = playing(source);
+	 return ret;
+	
+      }
+      case BrsRtmpConnFMLEPublish:{
 	brs_verbose("FMLE start to publish stream %s.", req->stream.c_str());
             
             if ((ret = rtmp->start_fmle_publish(res->stream_id)) != ERROR_SUCCESS) {
                 brs_error("start to publish stream failed. ret=%d", ret);
                 return ret;
             }
-      case BrsRtmpConnFlashPublish:
+            return publish(source);
+	
+      }
+      case BrsRtmpConnFlashPublish:{
 	   brs_verbose("flash start to publish stream %s.", req->stream.c_str());
             
             if ((ret = rtmp->start_flash_publish(res->stream_id)) != ERROR_SUCCESS) {
                 brs_error("flash start to publish stream failed. ret=%d", ret);
                 return ret;
             }
+            return publish(source);
+      }
       default: {
             ret = ERROR_SYSTEM_CLIENT_INVALID;
             brs_info("invalid client type=%d. ret=%d", type, ret);
@@ -298,6 +314,78 @@ int BRSClientWorker::stream_service_cycle()
     }
     
     return ret;
+}
+
+int BRSClientWorker::publish(BRSSource* source)
+{
+      int ret = ERROR_SUCCESS;
+      BrsCommonMessage * msg = NULL;
+      //brsServer->addEpoll(this->mContext.client_socketfd,EPOLLIN);
+      while(true){
+      if((ret=rtmp->recv_message(&msg))!=ERROR_SUCCESS)
+      {
+	SafeDelete(msg);
+	return ret;
+      }
+      if(msg->header.is_audio())
+      {
+	if((ret=source->onAudio(msg)) != ERROR_SUCCESS)
+	{
+	  brs_error("source process audio message failed. ret=%d", ret);
+	  return ret;
+	}
+      }
+      
+      if(msg->header.is_video())
+      {
+	if((ret = source->onVideo(msg))!=ERROR_SUCCESS)
+	{
+	  brs_error("source process video message failed. ret=%d", ret);
+	  return ret;
+	}
+      }
+      // process onMetaData
+    if (msg->header.is_amf0_data() || msg->header.is_amf3_data()) {
+        BrsPacket* pkt = NULL;
+        if ((ret = rtmp->decode_message(msg, &pkt)) != ERROR_SUCCESS) {
+            brs_error("decode onMetaData message failed. ret=%d", ret);
+            return ret;
+        }
+        BrsAutoFreeE(BrsPacket, pkt);
+        if (dynamic_cast<BrsOnMetaDataPacket*>(pkt)) {
+            BrsOnMetaDataPacket* metadata = dynamic_cast<BrsOnMetaDataPacket*>(pkt);
+            if ((ret = source->onMetaData(msg, metadata)) != ERROR_SUCCESS) {
+                brs_error("source process onMetaData message failed. ret=%d", ret);
+                return ret;
+            }
+            brs_info("process onMetaData message success.");
+        }
+    }
+      source->forwardAll();
+      
+      coroutine_yield(this->mContext.menv);
+      }
+      return ret;
+}
+
+int BRSClientWorker::playing(BRSSource* source)
+{
+    int ret = ERROR_SUCCESS;
+    BRSConsumer *consumer = new BRSConsumer(source,this->mContext.client_socketfd,rtmp,res);
+    
+    source->pushConsumer(consumer);
+   
+    while(true)
+    {
+      coroutine_yield(this->mContext.menv);
+    }
+    
+    return 0;
+}
+
+int BRSClientWorker::do_playing(BRSSource* source)
+{
+      return 0;
 }
 
 

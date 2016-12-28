@@ -7,7 +7,6 @@ namespace BRS
 BRSServer::BRSServer():clientWorker(NULL)
 {
     brsClientContextMaps = new BRSClientContextMaps();
-    consumersOnPublisher = new ConsumersOnPublisher();
     server_epoll	 = new BRSEpoll();
 }
 
@@ -25,7 +24,7 @@ int BRSServer::initServer(int mport)
      return -1;
    result = server_epoll->initEpoll(16);
    result = BRSCoroutine_open();
-   result = server_epoll->addEpoll(server_socket.sfd,EPOLLIN);
+   result = server_epoll->addEpoll(server_socket.sfd,EPOLLIN | EPOLLET);
    return result;
 }
 
@@ -33,7 +32,7 @@ void BRSServer::start()
 {
     
    int connfd,coroutineid;
-  // int result=0;
+   int result=0;
   while(1){
     int nready=server_epoll->waitEpoll();
     if (nready == -1)
@@ -57,7 +56,7 @@ void BRSServer::start()
 	      clientWorker->mContext.coroutine_fd = coroutineid;
 	      brsClientContextMaps->insert(std::make_pair(connfd,clientWorker));
 	    if(connfd<0) continue;
-	    server_epoll->addEpoll(connfd,EPOLLIN);
+	   server_epoll->addEpoll(connfd,EPOLLIN);
 	  }else if(server_epoll->epoll_in(i))
 	  {
 	     connfd = server_epoll->getCfd(i);
@@ -66,61 +65,48 @@ void BRSServer::start()
 		  continue; 
 	      else
 		clientWorker=bccmitor->second;
+	      
 	     //if 协程状态为真 则分配时间运行
 	     if(BRSCoroutine_status( clientWorker->mContext.coroutine_fd))
 	      {
 		//重新分配协程时间
 		BRSCoroutine_resume( clientWorker->mContext.coroutine_fd);
 	      }
+	     
 	  }
 	}
-	usleep(10);
+	
   }
   BRSCoroutine_close();
 }
 
-void BRSServer::pushConsumer(int publisherFd, BRSConsumer* consumer)
+
+int BRSServer::addEpoll(int fd, int opt)
 {
-    consumersOnPublisher->insert(std::make_pair<int,BRSConsumer*>(publisherFd,consumer));
+    return server_epoll->addEpoll(fd,opt);
 }
 
-int BRSServer::delConsumer( int clientFd)
+int BRSServer::delEpoll(int fd)
 {
-    int ret = ERROR_SUCCESS;
-  
-    PublisherItr pitr;
-    for(pitr=consumersOnPublisher->begin();pitr!=consumersOnPublisher->end();++pitr)
-    {
-	    BRSConsumer *bcm = pitr->second;
-	  if(clientFd == bcm->getClientFd())
-	  {
-	     consumersOnPublisher->erase(pitr);
-	     return 0;
-	  }
-	
-    }
-    return -1;
+   return server_epoll->delEpoll(fd);
 }
 
 
-BRSConsumer* BRSServer::popConsumer(int publisherFd, int clientFd)
+
+
+BRSWorker* BRSServer::getWork(int clientFd)
 {
-    BRSConsumer *bcm =NULL;
-    PubPair pp = consumersOnPublisher->equal_range(publisherFd);
-    PublisherItr pitr;
-    for(pitr=pp.first;pitr!=pp.second;++pitr)
+    BRSWorker  *clientWorker;
+    BCCMItor 		bccmitor;
+    bccmitor = brsClientContextMaps->find(clientFd);
+	     if(bccmitor!=brsClientContextMaps->end())
+		clientWorker=bccmitor->second;
+    if(clientWorker)
     {
-	     bcm = pitr->second;
-	  if(clientFd == bcm->getClientFd())
-	  {
-	     consumersOnPublisher->erase(pitr);
-	     return bcm;
-	  }
-	
+      return clientWorker;
     }
     return NULL;
 }
-
 
 
 int BRSServer::closeClient(int fd)

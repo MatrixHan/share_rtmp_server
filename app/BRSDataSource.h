@@ -104,6 +104,7 @@ public:
     virtual void clear();
 };
 class BRSConsumer;
+class BrsRtmpServer;
 class BRSSource
 {
 private:
@@ -167,6 +168,12 @@ private:
     // the cached audio sequence header.
     BrsSharedPtrMessage* cache_sh_audio;
     
+public:
+  virtual int pushConsumer(BRSConsumer * consumer);
+    
+  virtual int delConsumer(BRSConsumer * consumer);
+  
+  virtual int forwardAll();
 };
 
 
@@ -176,7 +183,11 @@ private:
     BRSSource * source;
     BRSMessageQueue *queue;
     
+    BrsRtmpServer *rtmp;
+    
     int  clientFd;
+    
+   BrsResponse * res;
     
     bool paused;
     
@@ -184,7 +195,7 @@ private:
     bool should_update_source_id;
     
 public:
-  BRSConsumer(BRSSource *_source,int _clientFd);
+  BRSConsumer(BRSSource *_source,int _clientFd, BrsRtmpServer *rtmp,BrsResponse *_res);
   virtual ~BRSConsumer();
 public:
   
@@ -202,7 +213,12 @@ public:
   
   virtual int dump_packets(BrsMessageArray * msgs,int &count);
   
+  virtual int get_queue_size();
+  
   virtual int on_play_client_pause(bool is_pause);
+  
+  virtual int forward();
+
 };
 
 

@@ -19,7 +19,7 @@ BRSSocket::~BRSSocket()
 int BRSSocket::initSocket(int port)
 {
       
-  if ((sfd=socket(PF_INET, SOCK_STREAM | SOCK_NONBLOCK | SOCK_CLOEXEC, IPPROTO_TCP)) < 0)
+  if ((sfd=socket(PF_INET, SOCK_STREAM | /*SOCK_NONBLOCK | */SOCK_CLOEXEC, IPPROTO_TCP)) < 0)
 		return -1;
       memset(&servaddr, 0, sizeof(servaddr));
       servaddr.sin_family = AF_INET;
@@ -66,7 +66,7 @@ int BRSSocket::acceptSocket()
 int BRSSocket::accept4Socket()
 {
       unsigned int len = sizeof(peeraddr);
-      int connfd = accept4(sfd, (struct sockaddr*)&peeraddr, &len, SOCK_NONBLOCK | SOCK_CLOEXEC);
+      int connfd = accept4(sfd, (struct sockaddr*)&peeraddr, &len, /*SOCK_NONBLOCK |*/ SOCK_CLOEXEC);
        if(connfd == -1)
 	    {
 	       if(errno == EMFILE)

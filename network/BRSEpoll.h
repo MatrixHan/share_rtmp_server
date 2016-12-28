@@ -32,6 +32,8 @@ namespace BRS
     
     bool epoll_in(int i);
     
+    bool epoll_out(int i);
+    
     inline int client_size(){return clients.size();}
     
     inline void resize_client(){clients.resize(client_size()*2);}

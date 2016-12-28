@@ -32,6 +32,7 @@ namespace BRS
 #define BRS_EDGE_TOKEN_TRAVERSE_TIMEOUT_US (int64_t)(3*1000*1000LL)
   
   class BRSServer;
+  class BRSSource;
   class BRSClientWorker:virtual public BRSWorker 
   {
   private:
@@ -53,6 +54,12 @@ namespace BRS
     
     virtual  int  service_cycle();
     virtual  int  stream_service_cycle();
+    
+    virtual int publish(BRSSource * source);
+    
+    virtual int playing(BRSSource * source);
+    
+    virtual int do_playing(BRSSource * source);
     
   };
   

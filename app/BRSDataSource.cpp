@@ -2,6 +2,7 @@
 #include <BRSKernelError.h>
 #include <BRSMath.h>
 #include <BRSRtmpUtility.h>
+#include <BRSProtocol.h>
 namespace BRS 
 {
   
@@ -351,12 +352,15 @@ void BRSMessageQueue::clear()
      av_start_time = av_end_time = -1;
 }
 
-BRSConsumer::BRSConsumer(BRSSource* _source,int _clientFd)
+BRSConsumer::BRSConsumer(BRSSource* _source,int _clientFd, BrsRtmpServer *_rtmp,BrsResponse *_res)
 {
     source = _source;
+    res = _res;
     clientFd = _clientFd;
     paused = false;
     queue = new BRSMessageQueue();
+    rtmp = _rtmp;
+    queue->set_queue_size(128);
     should_update_source_id = false;
 }
 
@@ -401,6 +405,12 @@ int BRSConsumer::enqueue(BrsSharedPtrMessage* shared_ms)
     return ret;
 }
 
+int BRSConsumer::get_queue_size()
+{
+    return queue->size();
+}
+
+
 int BRSConsumer::dump_packets(BrsMessageArray* msgs, int& count)
 {
     int ret =ERROR_SUCCESS;
@@ -442,6 +452,25 @@ int BRSConsumer::on_play_client_pause(bool is_pause)
     
     return ret;
 }
+
+int BRSConsumer::forward()
+{
+    int ret = ERROR_SUCCESS;
+    int count = get_queue_size();
+    BrsMessageArray * array = new BrsMessageArray(128);
+    if((ret=this->dump_packets(array,count))!=ERROR_SUCCESS)
+    {
+       return ret;
+    }
+    if((ret=rtmp->send_and_free_messages(array->msgs,count,res->stream_id))!=ERROR_SUCCESS)
+    {
+      return ret;
+    }
+    return ret;
+}
+
+
+
 
 
 std::map<std::string,BRSSource*> BRSSource::pool;
@@ -554,7 +583,7 @@ BRSSource::~BRSSource()
 int BRSSource::initialize(BrsRequest* r)
 {
       _req = r->copy();
-      
+      return 0;
 }
 
 void BRSSource::dispose()
@@ -884,6 +913,48 @@ int BRSSource::onAudioImp(BrsSharedPtrMessage* msg)
     
     return ret;
 }
+
+int BRSSource::pushConsumer(BRSConsumer* consumer)
+{
+     consumers.push_back(consumer);
+     return 0;
+}
+int BRSSource::delConsumer(BRSConsumer* consumer)
+{
+    std::vector<BRSConsumer *>::iterator itr;
+    BRSConsumer* consumert;
+    for(itr = consumers.begin();itr!=consumers.end();++itr)
+    {
+	    consumert = *itr;
+	  if(consumert->getClientFd()==consumer->getClientFd())
+	  {
+	     SafeDelete(consumert);
+	     consumers.erase(itr);
+	  }
+    }
+    return 0;
+    
+}
+
+int BRSSource::forwardAll()
+{	
+    int ret = ERROR_SUCCESS;
+    std::vector<BRSConsumer *>::iterator itr;
+    BRSConsumer* consumert;
+    for(itr = consumers.begin();itr!=consumers.end();++itr)
+    {
+	    consumert = *itr;
+	    int count =1;
+      if(consumert){
+	
+	ret=consumert->forward();
+	      
+      }
+    }
+    return ret;
+}
+
+
 
 
 }

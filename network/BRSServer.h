@@ -10,9 +10,7 @@
 #include <BRSDataSource.h>
 namespace BRS 
 {
-  typedef std::multimap<int ,BRSConsumer*> ConsumersOnPublisher;
-  typedef std::multimap<int ,BRSConsumer*>::iterator PublisherItr;
-  typedef std::pair<PublisherItr,PublisherItr> PubPair;
+
   class BRSServer:public BRSCoroutine
   {
     
@@ -21,8 +19,6 @@ namespace BRS
     BCCMItor 			bccmitor;
     BRSWorker  			*clientWorker;
     BRSClientContextMaps  	*brsClientContextMaps;
-    ConsumersOnPublisher     	*consumersOnPublisher;
-    PublisherItr               	pItr; 
     BRSEpoll		     	*server_epoll;
   public:
     
@@ -31,13 +27,15 @@ namespace BRS
     
     void start();
     
-    void pushConsumer(int publisherFd,BRSConsumer * consumer);
     
-    BRSConsumer* popConsumer(int publisherFd,int clientFd);
+    int addEpoll(int fd,int opt);
     
-    int delConsumer(int clientFd);
+    int delEpoll(int fd);
+    
     
     int closeClient(int fd);
+    
+    BRSWorker* getWork(int clientFd);
   };
   
 }

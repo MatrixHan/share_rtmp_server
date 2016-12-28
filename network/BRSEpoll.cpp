@@ -32,6 +32,11 @@ bool BRSEpoll::epoll_in(int i)
     return clients[i].events&EPOLLIN;
 }
 
+bool BRSEpoll::epoll_out(int i)
+{
+ return clients[i].events&EPOLLOUT;
+}
+
 
 
 int BRSEpoll::waitEpoll()
