@@ -11,9 +11,10 @@
 #include <fcntl.h>
 #include <time.h>
 #include <sys/types.h>
-#ifndef _WIN32
+
+#define __STDC_FORMAT_MACROS
 #include <inttypes.h>
-#endif
+
 
 #include <signal.h>
 

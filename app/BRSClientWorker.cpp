@@ -244,6 +244,7 @@ int BRSClientWorker::service_cycle()
         return ret;
     }
     
+    
     return ret;
 }
 
