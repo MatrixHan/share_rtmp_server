@@ -33,6 +33,7 @@ namespace BRS
   
   class BRSServer;
   class BRSSource;
+  class BRSConsumer;
   class BRSClientWorker:virtual public BRSWorker 
   {
   private:
@@ -59,7 +60,7 @@ namespace BRS
     
     virtual int playing(BRSSource * source);
     
-    virtual int do_playing(BRSSource * source);
+    virtual int do_playing(BRSConsumer * consumer,BrsCommonMessage *msg);
     
   };
   

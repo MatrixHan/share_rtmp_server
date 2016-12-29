@@ -234,7 +234,7 @@ int brs_write_large_iovs(BRSReadWriter* skt, iovec* iovs, int size, ssize_t* pnw
     
     // send in a time.
     if (size < limits) {
-        if ((ret = skt->writen(iovs, size, pnwrite)) != ERROR_SUCCESS) {
+        if ((ret = skt->writev(iovs, size, pnwrite)) != ERROR_SUCCESS) {
             if (!brs_is_client_gracefully_close(ret)) {
                 brs_error("send with writev failed. ret=%d", ret);
             }
@@ -247,7 +247,7 @@ int brs_write_large_iovs(BRSReadWriter* skt, iovec* iovs, int size, ssize_t* pnw
     int cur_iov = 0;
     while (cur_iov < size) {
         int cur_count = brs_min(limits, size - cur_iov);
-        if ((ret = skt->writen(iovs + cur_iov, cur_count, pnwrite)) != ERROR_SUCCESS) {
+        if ((ret = skt->writev(iovs + cur_iov, cur_count, pnwrite)) != ERROR_SUCCESS) {
             if (!brs_is_client_gracefully_close(ret)) {
                 brs_error("send with writev failed. ret=%d", ret);
             }

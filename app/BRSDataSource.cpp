@@ -923,13 +923,13 @@ int BRSSource::delConsumer(BRSConsumer* consumer)
 {
     std::vector<BRSConsumer *>::iterator itr;
     BRSConsumer* consumert;
-    for(itr = consumers.begin();itr!=consumers.end();++itr)
+    for(itr = consumers.begin();itr!=consumers.end();)
     {
 	    consumert = *itr;
 	  if(consumert->getClientFd()==consumer->getClientFd())
 	  {
 	     SafeDelete(consumert);
-	     consumers.erase(itr);
+	     itr=consumers.erase(itr);
 	  }
     }
     return 0;

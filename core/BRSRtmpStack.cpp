@@ -122,7 +122,7 @@ BrsChunkStream::~BrsChunkStream()
 
 BrsRequest::~BrsRequest()
 {
-    SafeDeleteArray(args);
+    //SafeDeleteArray(args);
 }
 
 BrsRequest* BrsRequest::copy()

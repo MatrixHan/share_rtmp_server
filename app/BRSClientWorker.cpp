@@ -19,7 +19,6 @@ BRSClientWorker::BRSClientWorker(int pfd,BRSServer *mserver):BRSWorker(mserver)
       skt = new BRSReadWriter(pfd);
       rtmp = new BrsRtmpServer(skt);
       disposed = false;
-      
 }
 
 
@@ -37,6 +36,7 @@ BRSClientWorker::~BRSClientWorker()
 
 void BRSClientWorker::do_something()
 {
+     
       
      ip = brs_get_peer_ip(this->mContext.client_socketfd);
      int ret = ERROR_SUCCESS;
@@ -374,18 +374,97 @@ int BRSClientWorker::playing(BRSSource* source)
     BRSConsumer *consumer = new BRSConsumer(source,this->mContext.client_socketfd,rtmp,res);
     
     source->pushConsumer(consumer);
-   
+    coroutine_yield(this->mContext.menv);
+   BrsCommonMessage * msg = NULL;
     while(true)
     {
-      coroutine_yield(this->mContext.menv);
+      if((ret=rtmp->recv_message(&msg))!=ERROR_SUCCESS)
+      {
+	SafeDelete(msg);
+	return ret;
+      }
+      ret=do_playing(consumer,msg);
+      source->delConsumer(consumer);
+      return ret;
     }
     
     return 0;
 }
 
-int BRSClientWorker::do_playing(BRSSource* source)
+int BRSClientWorker::do_playing(BRSConsumer * consumer,BrsCommonMessage *msg)
 {
-      return 0;
+      int ret = ERROR_SUCCESS;
+    
+    if (!msg) {
+        brs_verbose("ignore all empty message.");
+        return ret;
+    }
+    BrsAutoFreeE(BrsCommonMessage, msg);
+    
+    if (!msg->header.is_amf0_command() && !msg->header.is_amf3_command()) {
+        brs_info("ignore all message except amf0/amf3 command.");
+        return ret;
+    }
+    
+    BrsPacket* pkt = NULL;
+    if ((ret = rtmp->decode_message(msg, &pkt)) != ERROR_SUCCESS) {
+        brs_error("decode the amf0/amf3 command packet failed. ret=%d", ret);
+        return ret;
+    }
+    brs_info("decode the amf0/amf3 command packet success.");
+    
+    BrsAutoFreeE(BrsPacket, pkt);
+    
+    // for jwplayer/flowplayer, which send close as pause message.
+    // @see https://github.com/ossrs/srs/issues/6
+    BrsCloseStreamPacket* close = dynamic_cast<BrsCloseStreamPacket*>(pkt);
+    if (close) {
+        ret = ERROR_CONTROL_RTMP_CLOSE;
+        brs_trace("system control message: rtmp close stream. ret=%d", ret);
+        return ret;
+    }
+    
+    // call msg,
+    // support response null first,
+    // @see https://github.com/ossrs/srs/issues/106
+    // TODO: FIXME: response in right way, or forward in edge mode.
+    BrsCallPacket* call = dynamic_cast<BrsCallPacket*>(pkt);
+    if (call) {
+        // only response it when transaction id not zero,
+        // for the zero means donot need response.
+        if (call->transaction_id > 0) {
+            BrsCallResPacket* res = new BrsCallResPacket(call->transaction_id);
+            res->command_object = BrsAmf0Any::null();
+            res->response = BrsAmf0Any::null();
+            if ((ret = rtmp->send_and_free_packet(res, 0)) != ERROR_SUCCESS) {
+                if (!brs_is_system_control_error(ret) && !brs_is_client_gracefully_close(ret)) {
+                    brs_warn("response call failed. ret=%d", ret);
+                }
+                return ret;
+            }
+        }
+        return ret;
+    }
+    
+    // pause
+    BrsPausePacket* pause = dynamic_cast<BrsPausePacket*>(pkt);
+    if (pause) {
+        if ((ret = rtmp->on_play_client_pause(res->stream_id, pause->is_pause)) != ERROR_SUCCESS) {
+            brs_error("rtmp process play client pause failed. ret=%d", ret);
+            return ret;
+        }
+
+        if ((ret = consumer->on_play_client_pause(pause->is_pause)) != ERROR_SUCCESS) {
+            brs_error("consumer process play client pause failed. ret=%d", ret);
+            return ret;
+        }
+        brs_info("process pause success, is_pause=%d, time=%d.", pause->is_pause, pause->time_ms);
+        return ret;
+    }
+    
+    // other msg.
+    brs_info("ignore all amf0/amf3 command except pause and video control.");
+    return ret;
 }
 
 
