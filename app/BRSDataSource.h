@@ -161,13 +161,13 @@ public:
   virtual int onAudio(BrsCommonMessage *msg);
   
   virtual int onAudioImp(BrsSharedPtrMessage *audioMsg);
-private:
+public:
     BrsSharedPtrMessage* cache_metadata;
     // the cached video sequence header.
     BrsSharedPtrMessage* cache_sh_video;
     // the cached audio sequence header.
     BrsSharedPtrMessage* cache_sh_audio;
-    
+
 public:
   virtual int pushConsumer(BRSConsumer * consumer);
     
@@ -193,6 +193,8 @@ private:
     
     // when source id changed, notice all consumers
     bool should_update_source_id;
+    
+    bool first_blood;
     
 public:
   BRSConsumer(BRSSource *_source,int _clientFd, BrsRtmpServer *rtmp,BrsResponse *_res);

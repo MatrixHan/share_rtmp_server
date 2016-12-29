@@ -264,17 +264,13 @@ int BRSClientWorker::stream_service_cycle()
     
     BRSSource * source = BRSSource::fetch(req);
     
-    if(!source )
-    {
-      if((ret=BRSSource::create(req,&source))!=ERROR_SUCCESS)
-      {
-	  return ret;
-      }
-    }
+   
     
     switch(type)
     {
       case BrsRtmpConnPlay:{
+	if(!source)
+	  return -1;
 	brs_verbose("start to play stream %s.", req->stream.c_str());
             
             // response connection start play
@@ -288,6 +284,13 @@ int BRSClientWorker::stream_service_cycle()
 	
       }
       case BrsRtmpConnFMLEPublish:{
+    if(!source )
+    {
+	  if((ret=BRSSource::create(req,&source))!=ERROR_SUCCESS)
+	{
+	  return ret;
+	}
+    }
 	brs_verbose("FMLE start to publish stream %s.", req->stream.c_str());
             
             if ((ret = rtmp->start_fmle_publish(res->stream_id)) != ERROR_SUCCESS) {
@@ -298,6 +301,13 @@ int BRSClientWorker::stream_service_cycle()
 	
       }
       case BrsRtmpConnFlashPublish:{
+	if(!source )
+    {
+	  if((ret=BRSSource::create(req,&source))!=ERROR_SUCCESS)
+	{
+	  return ret;
+	}
+    }
 	   brs_verbose("flash start to publish stream %s.", req->stream.c_str());
             
             if ((ret = rtmp->start_flash_publish(res->stream_id)) != ERROR_SUCCESS) {
@@ -374,20 +384,25 @@ int BRSClientWorker::playing(BRSSource* source)
     BRSConsumer *consumer = new BRSConsumer(source,this->mContext.client_socketfd,rtmp,res);
     
     source->pushConsumer(consumer);
-    coroutine_yield(this->mContext.menv);
+    
    BrsCommonMessage * msg = NULL;
     while(true)
     {
+      coroutine_yield(this->mContext.menv);
       if((ret=rtmp->recv_message(&msg))!=ERROR_SUCCESS)
       {
 	SafeDelete(msg);
 	return ret;
       }
-      ret=do_playing(consumer,msg);
+      if(ret=do_playing(consumer,msg)!=ERROR_SUCCESS){
       source->delConsumer(consumer);
       return ret;
+      }else if(ret == ERROR_CONTROL_RTMP_CLOSE)
+      {
+	break;
+      }
     }
-    
+    source->delConsumer(consumer);
     return 0;
 }
 
@@ -397,19 +412,20 @@ int BRSClientWorker::do_playing(BRSConsumer * consumer,BrsCommonMessage *msg)
     
     if (!msg) {
         brs_verbose("ignore all empty message.");
-        return ret;
+        return -1;
     }
     BrsAutoFreeE(BrsCommonMessage, msg);
     
-    if (!msg->header.is_amf0_command() && !msg->header.is_amf3_command()) {
+
+    if (!msg->header.is_amf0_command() && !msg->header.is_amf3_command()&&!msg->header.is_ackledgement()&&!msg->header.is_user_control_message()) {
         brs_info("ignore all message except amf0/amf3 command.");
-        return ret;
+        return -1;
     }
     
     BrsPacket* pkt = NULL;
     if ((ret = rtmp->decode_message(msg, &pkt)) != ERROR_SUCCESS) {
         brs_error("decode the amf0/amf3 command packet failed. ret=%d", ret);
-        return ret;
+        return -1;
     }
     brs_info("decode the amf0/amf3 command packet success.");
     
@@ -460,6 +476,16 @@ int BRSClientWorker::do_playing(BRSConsumer * consumer,BrsCommonMessage *msg)
         }
         brs_info("process pause success, is_pause=%d, time=%d.", pause->is_pause, pause->time_ms);
         return ret;
+    }
+    
+    BrsAcknowledgementPacket * ack = dynamic_cast<BrsAcknowledgementPacket*>(pkt);
+    if(ack)
+    {
+      if((ret=rtmp->set_window_ack_size(ack->sequence_number))!=ERROR_SUCCESS)
+      {
+	return ret;
+      }
+      return ret;
     }
     
     // other msg.

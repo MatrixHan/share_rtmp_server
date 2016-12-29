@@ -356,6 +356,7 @@ BRSConsumer::BRSConsumer(BRSSource* _source,int _clientFd, BrsRtmpServer *_rtmp,
 {
     source = _source;
     res = _res;
+    first_blood = false;
     clientFd = _clientFd;
     paused = false;
     queue = new BRSMessageQueue();
@@ -456,7 +457,24 @@ int BRSConsumer::on_play_client_pause(bool is_pause)
 int BRSConsumer::forward()
 {
     int ret = ERROR_SUCCESS;
-    int count = get_queue_size();
+    
+    if(!first_blood)
+    {
+      if(source->cache_sh_video && source->cache_sh_audio)
+      {
+	if((ret=rtmp->send_and_free_message(source->cache_sh_video->copy(),res->stream_id))!=ERROR_SUCCESS)
+	{
+	   return ret;
+	}
+	if((ret=rtmp->send_and_free_message(source->cache_sh_audio->copy(),res->stream_id))!=ERROR_SUCCESS)
+	{
+	   return ret;
+	}
+      first_blood = true;
+      }
+    }
+    
+    int count = 0;
     BrsMessageArray * array = new BrsMessageArray(128);
     if((ret=this->dump_packets(array,count))!=ERROR_SUCCESS)
     {
@@ -566,7 +584,7 @@ void BRSSource::destroy()
 BRSSource::BRSSource()
 {
     _req = NULL;
-    mix_correct = false;
+    mix_correct = true;
     mix_queue = new BRSQueue();
     cache_metadata = cache_sh_video = cache_sh_audio = NULL;
     last_packet_time = 0;
@@ -944,7 +962,6 @@ int BRSSource::forwardAll()
     for(itr = consumers.begin();itr!=consumers.end();++itr)
     {
 	    consumert = *itr;
-	    int count =1;
       if(consumert){
 	
 	ret=consumert->forward();
