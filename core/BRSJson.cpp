@@ -4,6 +4,14 @@ namespace BRS
 {
  BRSConfig *conf = NULL;
   
+ int initConfig()
+{	
+  conf = new BRSConfig();
+  conf = BRSConfig::parse(CONFIG_DEFAULT_FILE_NAME);
+  return 0;
+}
+
+ 
 BRSConfig::BRSConfig()
 {
     gopsize = port = maxconnect = 0;
@@ -12,12 +20,6 @@ BRSConfig::BRSConfig()
 BRSConfig::~BRSConfig()
 {
 
-}
-int BRSConfig::initConfig()
-{	
-  conf = new BRSConfig();
-  conf = BRSConfig::parse(CONFIG_DEFAULT_FILE_NAME);
-  return 0;
 }
 
 
@@ -34,14 +36,13 @@ BRSConfig* BRSConfig::parse(std::string confName)
       }
       int size = root.size();
       BRSConfig * cf = new BRSConfig();
-      for(int i =0 ;i<size ;i++)
-      {
-	cf->gopsize = root[i]["gopsize"].asInt();
-	cf->maxconnect = root[i]["maxconnect"].asInt();
-	cf->port   = root[i]["port"].asInt();
-	cf->movieDir = root[i]["movieDir"].asString();
-	cf->vhost   = root[i]["vhost"].asString();
-      }
+      
+	cf->gopsize = root["gopsize"].asInt();
+	cf->maxconnect = root["maxconnect"].asInt();
+	cf->port   = root["port"].asInt();
+	cf->movieDir = root["movieDir"].asString();
+	cf->vhost   = root["vhost"].asString();
+     
       
       return cf;
 }

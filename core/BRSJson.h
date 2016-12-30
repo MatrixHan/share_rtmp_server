@@ -9,7 +9,7 @@ namespace BRS
 class BRSConfig;
   
 extern BRSConfig * conf;
-  
+int initConfig();
 struct BRSConfig
 {
   int 			gopsize;
@@ -20,7 +20,7 @@ struct BRSConfig
   
   BRSConfig();
   ~BRSConfig();
-  static int initConfig();
+  
   static BRSConfig* parse(std::string confName);
   static int 	    writeConf(BRSConfig* config);
 };

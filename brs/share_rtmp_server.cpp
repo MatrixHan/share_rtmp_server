@@ -1,5 +1,6 @@
-#include "../common/BRSCommon.h"
-#include "../app/BRSRtmpServer.h"
+#include <BRSCommon.h>
+#include <BRSRtmpServer.h>
+#include <BRSJson.h>
 using namespace BRS;
 /**
  * share_rtmp_server.cpp
@@ -7,6 +8,7 @@ using namespace BRS;
 int main(int argc,char *argv[])
 {
   InitLog("BRS.log");
+  initConfig();
   
   Log("project init ");
   BRSRtmpServer server(1935);
