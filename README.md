@@ -1,5 +1,5 @@
 # share_rtmp_server
 
-# anthor Brave Han
+ author Brave Han
 
-#TODO rtmp live server
+ TODO rtmp live server
