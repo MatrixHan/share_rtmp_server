@@ -16,6 +16,7 @@ ${PROJECT_SOURCE_DIR}/brs
 
 INCLUDE_DIRECTORIES(objs 
     objs/hp  objs/openssl/include   objs/coroutine/include  
+    objs/jsoncpp/include
     common   core  kernel  network   protocol  app)
 
 set(SOURCE_FILES brs/share_rtmp_server.cpp )
@@ -33,6 +34,7 @@ TARGET_LINK_LIBRARIES(brs dl )
 TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/coroutine/lib/coroutinelib.a)
 TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libssl.a)
 TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/openssl/lib/libcrypto.a)
+TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/jsoncpp/lib/libjsoncpp.a)
 #TARGET_LINK_LIBRARIES(brs ${PROJECT_SOURCE_DIR}/objs/hp/libhttp_parser.a)
 TARGET_LINK_LIBRARIES(brs -ldl )
 

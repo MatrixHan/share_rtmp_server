@@ -63,3 +63,26 @@ OPENSSL_HOTFIX="-DOPENSSL_NO_HEARTBEATS"
 			cd ../.. && rm -f ${OBJS_DIR}/_flag.coroutine.tmp
 		)
 	fi
+
+	#build jsoncpp
+	if [[ ! -f ${OBJS_DIR}/_flag.jsoncpp.tmp && -f ${OBJS_DIR}/jsoncpp/include/json/json.h && -f ${OBJS_DIR}/jsoncpp/build/src/lib_json/libjsoncpp.a ]];then
+		echo "jsoncpp is ok";
+	else
+		echo "build jsoncpp"
+		(
+			rm -rf ${OBJS_DIR}/jsoncpp  && cd ${OBJS_DIR} &&
+			unzip -q ../3rdparty/jsoncpp.zip && cd jsoncpp &&
+			mkdir -p  build && cd build && cmake ../ &&
+			make -j4  && cd ../  && mkdir -p lib && cp build/src/lib_json/libjsoncpp.a lib/ &&
+			cd ../.. && rm -f ${OBJS_DIR}/_flag.jsoncpp.tmp
+		)
+	fi
+	
+
+
+
+
+
+
+
+

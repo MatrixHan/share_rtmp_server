@@ -89,6 +89,9 @@ namespace BRS
 
         
         
+#define CONFIG_DEFAULT_FILE_NAME  "conf/brs.config"
+        
+        
 #define VERSION_MAJOR       1
 #define VERSION_MINOR       0
 #define VERSION_REVISION    101
