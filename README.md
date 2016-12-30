@@ -11,7 +11,7 @@ cd share_rtmp_server
 
 sh auto/depends.sh
 
-make -p build
+mkdir -p build
 
 cd build
 
