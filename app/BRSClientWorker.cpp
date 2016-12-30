@@ -372,6 +372,22 @@ int BRSClientWorker::publish(BRSSource* source)
             brs_info("process onMetaData message success.");
         }
     }
+    if(msg->header.is_amf0_command()||msg->header.is_amf0_command())
+    {
+	BrsPacket* pkt = NULL;
+        if ((ret = rtmp->decode_message(msg, &pkt)) != ERROR_SUCCESS) {
+            brs_error("decode onMetaData message failed. ret=%d", ret);
+            return ret;
+        }
+        BrsAutoFreeE(BrsPacket, pkt);
+       BrsCloseStreamPacket* close = dynamic_cast<BrsCloseStreamPacket*>(pkt);
+      if (close) {
+        ret = ERROR_CONTROL_RTMP_CLOSE;
+	BRSSource::destroy(req->get_stream_url());
+        brs_trace("system control message: rtmp close stream. ret=%d", ret);
+        return ret;
+    }
+    }
       source->forwardAll();
       
       coroutine_yield(this->mContext.menv);
@@ -493,7 +509,6 @@ int BRSClientWorker::do_playing(BRSConsumer * consumer,BrsCommonMessage *msg)
     brs_info("ignore all amf0/amf3 command except pause and video control.");
     return ret;
 }
-
 
   
 }

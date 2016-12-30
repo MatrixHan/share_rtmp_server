@@ -61,7 +61,6 @@ namespace BRS
     virtual int playing(BRSSource * source);
     
     virtual int do_playing(BRSConsumer * consumer,BrsCommonMessage *msg);
-    
   };
   
 }

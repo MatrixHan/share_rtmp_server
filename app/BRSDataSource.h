@@ -123,6 +123,8 @@ public:
     * when system exit, destroy the sources,
     * for gmc to analysis mem leaks.
     */
+  static int destroy(std::string stream_url);
+    
   static void destroy();
 private:
     // source id,
@@ -143,6 +145,8 @@ private:
     // whether stream is monotonically increase.
     bool is_monotonically_increase;
     int64_t last_packet_time;
+    
+    
 public:
   BRSSource();
   virtual ~BRSSource();
@@ -167,7 +171,7 @@ public:
     BrsSharedPtrMessage* cache_sh_video;
     // the cached audio sequence header.
     BrsSharedPtrMessage* cache_sh_audio;
-
+    bool update_video_sh;
 public:
   virtual int pushConsumer(BRSConsumer * consumer);
     

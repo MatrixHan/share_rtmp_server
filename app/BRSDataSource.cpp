@@ -460,8 +460,13 @@ int BRSConsumer::forward()
     
     if(!first_blood)
     {
-      if(source->cache_sh_video && source->cache_sh_audio)
+      if(source->cache_metadata && source->cache_sh_video && source->cache_sh_audio)
       {
+	
+	if((ret=rtmp->send_and_free_message(source->cache_metadata->copy(),res->stream_id))!=ERROR_SUCCESS)
+	{
+	   return ret;
+	}
 	if((ret=rtmp->send_and_free_message(source->cache_sh_video->copy(),res->stream_id))!=ERROR_SUCCESS)
 	{
 	   return ret;
@@ -472,6 +477,13 @@ int BRSConsumer::forward()
 	}
       first_blood = true;
       }
+    }else if(source->update_video_sh)
+    {
+      if(source->cache_sh_video)
+      if((ret=rtmp->send_and_free_message(source->cache_sh_video->copy(),res->stream_id))!=ERROR_SUCCESS)
+	{
+	   return ret;
+	}
     }
     
     int count = 0;
@@ -568,6 +580,19 @@ void BRSSource::dispose_all()
      
 }
 
+int BRSSource::destroy(string stream_url)
+{
+    std::map<std::string,BRSSource*>::iterator itr=pool.find(stream_url);
+    if(itr!=pool.end())
+    {
+      BRSSource *source = itr->second;
+      SafeDelete(source);
+      pool.erase(itr);
+      return 0;
+    }
+    return -1;
+}
+
 
 void BRSSource::destroy()
 {
@@ -585,6 +610,7 @@ BRSSource::BRSSource()
 {
     _req = NULL;
     mix_correct = true;
+    update_video_sh = false;
     mix_queue = new BRSQueue();
     cache_metadata = cache_sh_video = cache_sh_audio = NULL;
     last_packet_time = 0;
@@ -594,8 +620,14 @@ BRSSource::BRSSource()
 
 BRSSource::~BRSSource()
 {
+    consumers.clear();
     SafeDelete(mix_queue);
+    SafeDelete(cache_sh_video);
+    SafeDelete(cache_metadata);
+    SafeDelete(cache_sh_audio);
     SafeDelete(_req);
+    
+    
 }
 
 int BRSSource::initialize(BrsRequest* r)
@@ -791,6 +823,8 @@ int BRSSource::onVideoImp(BrsSharedPtrMessage* msg)
             brs_codec_avc_profile2str(codec.avc_profile).c_str(),
             brs_codec_avc_level2str(codec.avc_level).c_str(), codec.width, codec.height,
             codec.video_data_rate / 1000, codec.frame_rate, codec.duration);
+	
+	update_video_sh = true;
     }
     
      // copy to all consumer

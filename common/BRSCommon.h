@@ -88,6 +88,10 @@ namespace BRS
         className& operator= (const className&)
 
         
+        
+#define VERSION_MAJOR       1
+#define VERSION_MINOR       0
+#define VERSION_REVISION    101
 // stable major version
 #define VERSION_STABLE 1
 #define VERSION_STABLE_BRANCH BRS_XSTR(VERSION_STABLE)".0release"        
