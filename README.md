@@ -20,3 +20,11 @@ cmake ../
 make -j4
 
 build done
+
+#Run
+
+workspace $ProjectDir
+
+./build/brs 
+
+
